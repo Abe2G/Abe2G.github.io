@@ -18,4 +18,3 @@ This repository is my data science portifolio repository that I have created thr
 1. Udacity project 
 ### Predictive Analysis
 1. [Working with English Premier League Seasonal Data: Predicting winning team](english_premier_league_data_analysis.md)
-
