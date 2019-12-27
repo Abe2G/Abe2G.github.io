@@ -4,7 +4,7 @@ This repository is my data science portifolio repository that I have created thr
 1. [Exploring Major Cities Health Indicators](health_stats_analysis.md) 
 2.  [Airline Tweet Analysis to discover negative opinions of passengers towards service improvement](airline_tweet_data_analysis.md) 
 3.  [Simple Tweeter Data Analysis](twitter_minner.md)
-4. [Exploratory Data Analysis for Predicting Eurropean Soccer Data](ExploratoryAnalysis.md)
+4. [Exploratory Data Analysis for Predicting Eurropean Soccer Data](EDA_sport.html)
 ### Natural Language Processing
 1. Amharic Word Embedding
 2. Sentiment analysis
