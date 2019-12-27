@@ -18,7 +18,7 @@ avatar: https://abe2g.github.io/wm2wts.jpg
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email: wm2wts@gmail.com
+  email: 
   facebook: https://www.facebook.com/wm2wts
   flickr:
   github: abe2g
@@ -26,7 +26,7 @@ footer-links:
   linkedin: www.linkedin.com/in/abebawu-eshetu
   pinterest:
   rss: # just type anything here for a working RSS icon
-  twitter: jekyllrb
+  twitter: wm2wts
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
