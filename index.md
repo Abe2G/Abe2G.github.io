@@ -1,4 +1,4 @@
-This repository is my data science portifolio repository that I have created through self-directed learning. The repository contains data analysis, computer vision, NLP, and A/B testing projects I have created.
+This repository is my data science portifolio repository that I have created through self-directed learning. The repository contains data analysis, computer vision, NLP, and A/B testing projects.
 
 ### Data Analytics
 1. <a href="">Exploring Major Cities Health Indicators</a>
