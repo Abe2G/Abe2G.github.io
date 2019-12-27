@@ -18,12 +18,12 @@ avatar: https://abe2g.github.io/wm2wts.jpg
 # Includes an icon in the footer for each username you enter
 footer-links:
   dribbble:
-  email:wm2wts@gmail.com
-  facebook:https://www.facebook.com/wm2wts
+  email: wm2wts@gmail.com
+  facebook: https://www.facebook.com/wm2wts
   flickr:
-  github: barryclark/jekyll-now
-  instagram:abebawueshetu
-  linkedin:www.linkedin.com/in/abebawu-eshetu
+  github: abe2g
+  instagram: abebawueshetu
+  linkedin: www.linkedin.com/in/abebawu-eshetu
   pinterest:
   rss: # just type anything here for a working RSS icon
   twitter: jekyllrb
