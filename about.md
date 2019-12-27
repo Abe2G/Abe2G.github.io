@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
+Abebawu Eshetu
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
-
+Experienced Data Science researcher with accredited history of working in data science projects. Skilled in Python, data analysis, machine learning, data visualization, Django, mobile development, big data, IoT, Numpy, Pandas, Keras, Tensorflow, SQL, Statistics, and R. Strong data science technical skills with world-class certifications.
+Experienced Teacher with a demonstrated history of working in the higher education industry. Skilled in PHP, Java, .NET Framework, Network Administration, and System Administration. Strong education professional with a Master's degree focused in Information Technology from Jimma University. 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[wm2wts@gmail.com](mailto:wm2wts@gmail.com)
