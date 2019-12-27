@@ -14,15 +14,21 @@
 /**************/
 
 html {
-  font-size: 100%;
+  font-size: 50%;
 }
 
 body {
-	background: $white;
-  font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  font:14px/22px 'Quattrocento Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color:#2b2b2b;
+  font-weight:300;
+  margin: 0px;
+  padding:0px 0 20px 0px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color:#333;
+  margin:0 0 10px;
+}
 .container {
   margin: 0 auto;
   max-width: 740px;
@@ -45,22 +51,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 30px;
-  a {
-    color: inherit;
+    font: 40px/48px 'Copse', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #f3f3f3;
+    text-shadow: 0px 2px 0px #235796;
+    margin: 0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
   }
-}
-
 h2 {
-  font-size: 24px;
+  font-size: 16px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 14px;
 }
 
 h4 {
-  font-size: 18px;
+  font-size: 12px;
   color: $gray;
 }
 
@@ -122,12 +132,28 @@ img {
 
 // Specify the color of the selection
 ::-moz-selection {
-  color: $black;
-  background: $lightGray;
+  width:590px;
+  padding: 30px 30px 50px 30px;
+  margin: 20px 0;
+  margin-top: 190px;
+  position:relative;
+  background: #fbfbfb;
+  border-radius: 3px;
+  border: 1px solid #cbcbcb;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.09), inset 0px 0px 2px 2px rgba(255,255,255,.5), inset 0 0 5px 5px rgba(255,255,255,.4);
+}
 }
 ::selection {
-  color: $black;
-  background: $lightGray;
+  width:590px;
+  padding: 30px 30px 50px 30px;
+  margin: 20px 0;
+  margin-top: 190px;
+  position:relative;
+  background: #fbfbfb;
+  border-radius: 3px;
+  border: 1px solid #cbcbcb;
+  box-shadow: 0px 1px 2px rgba(0,0,0,.09), inset 0px 0px 2px 2px rgba(255,255,255,.5), inset 0 0 5px 5px rgba(255,255,255,.4);
+}
 }
 
 // Nicolas Gallagher's micro clearfix hack
@@ -165,7 +191,7 @@ img {
 
 .site-avatar {
   float: left;
-  width: 70px;
+  width: 100px;
   height: 70px;
   margin-right: 15px;
 
