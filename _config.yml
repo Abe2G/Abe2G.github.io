@@ -1,31 +1,12 @@
 theme: jekyll-theme-minimal
 title: Data Science Projects
 description: This repository is my data science portifolio repository that I have created through self-directed learning. The repository contains data analysis, computer vision, NLP, and A/B testing projects.
-logo: https://abe2g.github.io/wm2wts.jpg
+logo: wm2wts.jpg
 show_downloads: true
 footer-links:
-  dribbble:
-  email: 
+  email: wm2wts@gmail.com
   facebook: https://www.facebook.com/wm2wts
-  flickr:
   github: abe2g
   instagram: abebawueshetu
   linkedin: www.linkedin.com/in/abebawu-eshetu
-  pinterest:
-  rss: # just type anything here for a working RSS icon
   twitter: wm2wts
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
-  googleplus: # anything in your profile username that comes after plus.google.com/
-
-
-# Enter your Disqus shortname (not your username) to enable commenting on posts
-# You can find your shortname on the Settings page of your Disqus account
-disqus: Fafiye
-
-# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics:
-
-# Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
-# Used for Sitemap.xml and your RSS feed
-url: https://abe2g.github.io/
