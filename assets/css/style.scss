@@ -120,11 +120,11 @@ ul.downloads {
   background: #f4f4f4;
   border-radius:5px;
   border:1px solid #e0e0e0;
-  width:270px;
+  width:150px;
 }
 
 .downloads li {
-  width:89px;
+  width:50px;
   float:left;
   border-right:1px solid #e0e0e0;
   height:40px;
@@ -164,7 +164,7 @@ strong {
 
 .downloads li + li{
   border-right:none;
-  width:89px;
+  width:50px;
 }
 
 .downloads a strong {
@@ -257,11 +257,11 @@ footer {
   }
 
   .downloads {
-    width:99%;
+    width:50%;
   }
 
   .downloads li, .downloads li + li{
-    width:33%;
+    width:20%;
   }
 }
 
