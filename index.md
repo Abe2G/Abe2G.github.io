@@ -1,3 +1,5 @@
+The repository contains data analysis, predictive analytics, computer vision, NLP, and A/B testing projects developed through self-directed and learning.
+
 ### Data Analytics
 1. [Exploring Major Cities Health Indicators](health_stats_analysis.md) 
 2. [Airline Tweet Analysis to discover negative opinions of passengers towards service improvement](airline_tweet_data_analysis.md) 
