@@ -24,29 +24,27 @@
 
         {% if site.show_downloads %}
         <ul class="downloads">
-          <li><a href="{{ "/about.md" }}">About Me <strong>My Profile</strong></a></li>
           <li><a href="{{ site.github.zip_url }}">Download <strong>ZIP File</strong></a></li>
           <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
         </ul>
         {% endif %}
-      </header>
-      <section>
-
-      {{ content }}
-
-      </section>   
-       <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-         
+      <nav>
+            
 {% if site.footer-links.email %}<a href="mailto:{{ site.footer-links.email }}"><i class="svg-icon email"></i></a>{% endif %}
 {% if site.footer-links.facebook %}<a href="https://www.facebook.com/{{ site.footer-links.facebook }}"><i class="svg-icon facebook"></i></a>{% endif %}
 {% if site.footer-links.github %}<a href="https://github.com/{{ site.footer-links.github }}"><i class="svg-icon github"></i></a>{% endif %}
 {% if site.footer-links.instagram %}<a href="https://instagram.com/{{ site.footer-links.instagram }}"><i class="svg-icon instagram"></i></a>{% endif %}
 {% if site.footer-links.linkedin %}<a href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}"><i class="svg-icon linkedin"></i></a>{% endif %}
 {% if site.footer-links.twitter %}<a href="https://www.twitter.com/{{ site.footer-links.twitter }}"><i class="svg-icon twitter"></i></a>{% endif %}
-     
-        </footer>
+   <a href="{{ site.baseurl }}/about.md">About Me</a>
+          </nav>
+      </header>
+      <section>
+       
+      {{ content }}
+
+      </section>   
+    
       </div>
     </div>
 
