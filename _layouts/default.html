@@ -22,14 +22,6 @@
 
         <p>{{ site.description | default: site.github.project_tagline }}</p>
 
-        {% if site.github.is_project_page %}
-        <p class="view"><a href="{{ "/" | absolute_url }}">Home</a></p>
-        {% endif %}
-
-        {% if site.github.is_user_page %}
-         <p class="view"><a href="{{ "/" | absolute_url }}">Home</a></p>
-        {% endif %}
-
         {% if site.show_downloads %}
         <ul class="downloads">
           <li><a href="{{ "/about.md" }}">About Me <strong>My Profile</strong></a></li>
@@ -42,17 +34,22 @@
 
       {{ content }}
 
-      </section>
-<footer></footer>      
-      <footer>
-
+      </section>   
+       <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+         
 {% if site.footer-links.email %}<a href="mailto:{{ site.footer-links.email }}"><i class="svg-icon email"></i></a>{% endif %}
 {% if site.footer-links.facebook %}<a href="https://www.facebook.com/{{ site.footer-links.facebook }}"><i class="svg-icon facebook"></i></a>{% endif %}
 {% if site.footer-links.github %}<a href="https://github.com/{{ site.footer-links.github }}"><i class="svg-icon github"></i></a>{% endif %}
 {% if site.footer-links.instagram %}<a href="https://instagram.com/{{ site.footer-links.instagram }}"><i class="svg-icon instagram"></i></a>{% endif %}
 {% if site.footer-links.linkedin %}<a href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}"><i class="svg-icon linkedin"></i></a>{% endif %}
 {% if site.footer-links.twitter %}<a href="https://www.twitter.com/{{ site.footer-links.twitter }}"><i class="svg-icon twitter"></i></a>{% endif %}
-      </footer>
+     
+        </footer>
+      </div>
+    </div>
+
     </div>
     <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
