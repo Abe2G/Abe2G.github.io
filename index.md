@@ -1,4 +1,4 @@
-The repository contains data analysis, predictive analytics, computer vision, NLP, and A/B testing projects developed through self-directed and learning.
+The repository contains data analysis, predictive analytics, computer vision, NLP, and A/B testing projects developed through self-directed learning.
 
 ### Data Analytics
 1. [Exploring Major Cities Health Indicators](health_stats_analysis.md) 
