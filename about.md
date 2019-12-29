@@ -1,9 +1,3 @@
----
-layout: page
-title: About
-permalink: /about/
----
-
 Abebawu Eshetu
 
 My research interest is Natural Lnguage Processing, Machine Learning, and Computer Vision for Social Goods 
