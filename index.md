@@ -1,7 +1,7 @@
 ### Data Analytics
 1. [Exploring Major Cities Health Indicators](health_stats_analysis.md) 
-2.  [Airline Tweet Analysis to discover negative opinions of passengers towards service improvement](airline_tweet_data_analysis.md) 
-3.  [Simple Tweeter Data Analysis](twitter_minner.md)
+2. [Airline Tweet Analysis to discover negative opinions of passengers towards service improvement](airline_tweet_data_analysis.md) 
+3. [Simple Tweeter Data Analysis](twitter_minner.md)
 4. [Exploratory Data Analysis for Predicting Eurropean Soccer Data](ExploratoryAnalysis.md)
 ### Natural Language Processing
 1. [Amharic Word Embedding](https://github.com/Abe2G/FastText-Amharic-Embedding-Vectors/blob/master/README.md)
