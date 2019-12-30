@@ -55,161 +55,20 @@ data.info()
 semtiments=pd.crosstab(data.airline, data.airline_sentiment)
 semtiments
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>airline_sentiment</th>
-      <th>negative</th>
-      <th>neutral</th>
-      <th>positive</th>
-    </tr>
-    <tr>
-      <th>airline</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>American</th>
-      <td>1960</td>
-      <td>463</td>
-      <td>336</td>
-    </tr>
-    <tr>
-      <th>Delta</th>
-      <td>955</td>
-      <td>723</td>
-      <td>544</td>
-    </tr>
-    <tr>
-      <th>Southwest</th>
-      <td>1186</td>
-      <td>664</td>
-      <td>570</td>
-    </tr>
-    <tr>
-      <th>US Airways</th>
-      <td>2263</td>
-      <td>381</td>
-      <td>269</td>
-    </tr>
-    <tr>
-      <th>United</th>
-      <td>2633</td>
-      <td>697</td>
-      <td>492</td>
-    </tr>
-    <tr>
-      <th>Virgin America</th>
-      <td>181</td>
-      <td>171</td>
-      <td>152</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+| airline | negative | neutral | positive |
+| ------- | -------- | ------- | -------- |
+| American | 1960 | 463 | 336 |
+| Delta | 955 | 723 | 544 |
+| Southwest | 1186 | 664 | 570 |
+| US Airways | 2263 | 381 | 269 |
+| United | 2633 | 697 | 492 |
+| Virgin America | 181 | 171 | 152 |   
 
 
 ```python
 negative_tweet=data[(data['airline_sentiment']=='negative')]
 negative_tweet.head()
 ```
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>tweet_id</th>
-      <th>airline_sentiment</th>
-      <th>airline_sentiment_confidence</th>
-      <th>negativereason</th>
-      <th>airline</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>3</th>
-      <td>570301031407624196</td>
-       <td>negative</td>
-      <td>1.0000</td>
-      <td>Bad Flight</td>
-      <td>Virgin America</td>
-      </tr>
-    <tr>
-      <th>4</th>
-      <td>570300817074462722</td>
-      <td>negative</td>
-      <td>1.0000</td>
-      <td>Can't Tell</td>
-      <td>Virgin America</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>570300767074181121</td>
-      <td>negative</td>
-      <td>1.0000</td>
-      <td>Can't Tell</td>
-      <td>Virgin America</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>570282469121007616</td>     
-      <td>negative</td>
-      <td>0.6842</td>
-      <td>Late Flight</td>
-      <td>Virgin America</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>570276917301137409</td>
-      <td>negative</td>
-      <td>1.0000</td>
-      <td>Bad Flight</td>
-      <td>Virgin America</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 Most common words in negative tweets
 
@@ -297,124 +156,15 @@ _=reason_count.plot(kind='bar')
 airline_neg_reason=negative_tweet.groupby('airline')['negativereason'].value_counts()
 airline_neg_reason.unstack()
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>negativereason</th>
-      <th>Bad Flight</th>
-      <th>Can't Tell</th>
-      <th>Cancelled Flight</th>
-      <th>Customer Service Issue</th>
-      <th>Damaged Luggage</th>
-      <th>Flight Attendant Complaints</th>
-      <th>Flight Booking Problems</th>
-      <th>Late Flight</th>
-      <th>Lost Luggage</th>
-      <th>longlines</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>American</th>
-      <td>87</td>
-      <td>198</td>
-      <td>246</td>
-      <td>768</td>
-      <td>12</td>
-      <td>87</td>
-      <td>130</td>
-      <td>249</td>
-      <td>149</td>
-      <td>34</td>
-    </tr>
-    <tr>
-      <th>Delta</th>
-      <td>64</td>
-      <td>186</td>
-      <td>51</td>
-      <td>199</td>
-      <td>11</td>
-      <td>60</td>
-      <td>44</td>
-      <td>269</td>
-      <td>57</td>
-      <td>14</td>
-    </tr>
-    <tr>
-      <th>Southwest</th>
-      <td>90</td>
-      <td>159</td>
-      <td>162</td>
-      <td>391</td>
-      <td>14</td>
-      <td>38</td>
-      <td>61</td>
-      <td>152</td>
-      <td>90</td>
-      <td>29</td>
-    </tr>
-    <tr>
-      <th>US Airways</th>
-      <td>104</td>
-      <td>246</td>
-      <td>189</td>
-      <td>811</td>
-      <td>11</td>
-      <td>123</td>
-      <td>122</td>
-      <td>453</td>
-      <td>154</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>United</th>
-      <td>216</td>
-      <td>379</td>
-      <td>181</td>
-      <td>681</td>
-      <td>22</td>
-      <td>168</td>
-      <td>144</td>
-      <td>525</td>
-      <td>269</td>
-      <td>48</td>
-    </tr>
-    <tr>
-      <th>Virgin America</th>
-      <td>19</td>
-      <td>22</td>
-      <td>18</td>
-      <td>60</td>
-      <td>4</td>
-      <td>5</td>
-      <td>28</td>
-      <td>17</td>
-      <td>5</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
+|Airlines|Bad Flight|Can't Tell|Cancelled Flight|Customer Service Issue|Damaged Luggage|Flight Attendant Complaints|Flight Booking Problems|Late Flight|Lost Luggage|longlines|
+|---|---|---|---|---|---|---|---|---|---|---|
+|American|87|198|246|768|12|87|130|249|149|34|
+|Delta|64|186|51|199|11|60|44|269|57|14|
+|Southwest|90|159|162|391|14|38|61|152|90|29|
+|US Airways|104|246|189|811|11|123|122|453|154|50|
+|United|216|379|181|681|22|168|144|525|269|48|
+|Virgin America|19|22|18|60|4|5|28|17|5|3|
+ 
 
 
 ```python
