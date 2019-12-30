@@ -2,14 +2,13 @@
 ### Airline Sentiment Analysis Project
 
 #### Project Objective
-    1. Analysing data to visualize airline trends
+*    Analysing data to visualize airline trends
         - What most posetive or negative tweets for each airline service talks about?
         - Does time of flight affect quality service?
         - Which reason commonly tweeted by customers for bad service?
         - Counting for retweeted negative tweets to shows which service is highly affecting.
-     
-    2.  Classifying whether the sentiment of the tweets is positive, neutral, or negative using Machine Learning Techniques, then categorizing negative tweets for their reason.
-
+*    Classifying whether the sentiment of the tweets is positive, neutral, or negative using Machine Learning Techniques, then categorizing negative tweets for their reason.
+    
 #### Data Analysis
 
 
@@ -30,104 +29,6 @@ data.head()
 ```python
 data=data[['tweet_id','text','airline_sentiment','airline_sentiment_confidence','negativereason','airline','retweet_count','tweet_created']]
 ```
-
-
-```python
-data.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>tweet_id</th>
-      <th>text</th>
-      <th>airline_sentiment</th>
-      <th>airline_sentiment_confidence</th>
-      <th>negativereason</th>
-      <th>airline</th>
-      <th>retweet_count</th>
-      <th>tweet_created</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>570306133677760513</td>
-      <td>@VirginAmerica What @dhepburn said.</td>
-      <td>neutral</td>
-      <td>1.0000</td>
-      <td>NaN</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 11:35:52 -0800</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>570301130888122368</td>
-      <td>@VirginAmerica plus you've added commercials t...</td>
-      <td>positive</td>
-      <td>0.3486</td>
-      <td>NaN</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 11:15:59 -0800</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>570301083672813571</td>
-      <td>@VirginAmerica I didn't today... Must mean I n...</td>
-      <td>neutral</td>
-      <td>0.6837</td>
-      <td>NaN</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 11:15:48 -0800</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>570301031407624196</td>
-      <td>@VirginAmerica it's really aggressive to blast...</td>
-      <td>negative</td>
-      <td>1.0000</td>
-      <td>Bad Flight</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 11:15:36 -0800</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>570300817074462722</td>
-      <td>@VirginAmerica and it's a really big bad thing...</td>
-      <td>negative</td>
-      <td>1.0000</td>
-      <td>Can't Tell</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 11:14:45 -0800</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 
 ```python
@@ -238,7 +139,6 @@ negative_tweet.head()
 
 
 
-
 <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -258,70 +158,52 @@ negative_tweet.head()
     <tr style="text-align: right;">
       <th></th>
       <th>tweet_id</th>
-      <th>text</th>
       <th>airline_sentiment</th>
       <th>airline_sentiment_confidence</th>
       <th>negativereason</th>
       <th>airline</th>
-      <th>retweet_count</th>
-      <th>tweet_created</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>3</th>
       <td>570301031407624196</td>
-      <td>@VirginAmerica it's really aggressive to blast...</td>
-      <td>negative</td>
+       <td>negative</td>
       <td>1.0000</td>
       <td>Bad Flight</td>
       <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 11:15:36 -0800</td>
-    </tr>
+      </tr>
     <tr>
       <th>4</th>
       <td>570300817074462722</td>
-      <td>@VirginAmerica and it's a really big bad thing...</td>
       <td>negative</td>
       <td>1.0000</td>
       <td>Can't Tell</td>
       <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 11:14:45 -0800</td>
     </tr>
     <tr>
       <th>5</th>
       <td>570300767074181121</td>
-      <td>@VirginAmerica seriously would pay $30 a fligh...</td>
       <td>negative</td>
       <td>1.0000</td>
       <td>Can't Tell</td>
       <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 11:14:33 -0800</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>570282469121007616</td>
-      <td>@VirginAmerica SFO-PDX schedule is still MIA.</td>
+      <td>570282469121007616</td>     
       <td>negative</td>
       <td>0.6842</td>
       <td>Late Flight</td>
       <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 10:01:50 -0800</td>
     </tr>
     <tr>
       <th>17</th>
       <td>570276917301137409</td>
-      <td>@VirginAmerica  I flew from NYC to SFO last we...</td>
       <td>negative</td>
       <td>1.0000</td>
       <td>Bad Flight</td>
       <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 09:39:46 -0800</td>
     </tr>
   </tbody>
 </table>
@@ -447,19 +329,6 @@ airline_neg_reason.unstack()
       <th>Late Flight</th>
       <th>Lost Luggage</th>
       <th>longlines</th>
-    </tr>
-    <tr>
-      <th>airline</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
