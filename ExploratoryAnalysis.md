@@ -5,22 +5,22 @@
 
 A football game generates many events and it is very important and interesting to take into account the context in which those events were generated. This dataset should keep sports analytics enthusiasts awake for long hours as the number of questions that can be asked is huge.
 
-Read <a href=http://crabstats.blogspot.com/>these blogs</a> to get a good understanding of soccer/football stats.
+Read [these blogs](http://crabstats.blogspot.com/>) to get a good understanding of soccer/football stats.
 
 **Data description:** 
 
 Nearly 25,000 soccer games from all leagues all over the world. The fields in the data set are: Columns A to E contains information about the league, home and away teams, date etc Columns F, G and H contain the odds for the home win, draw and away win Columns I to BQ contain the team statistics. 
 
-Home team stats are prefixed with a "h" similarly, away team stats are prefixed with an "a". Examples include ladder position (which is a term for a rank in a group -  <a href=https://www.flashscore.com.au/football/europe/euro/standings/> here </a> an example), games played, goals conceded, away games won etc. Columns BR to CA contain final result information. That is the result, the full time result and if available, the half time score as well.
+Home team stats are prefixed with a "h" similarly, away team stats are prefixed with an "a". Examples include ladder position (which is a term for a rank in a group - [here](https://www.flashscore.com.au/football/europe/euro/standings) an example), games played, goals conceded, away games won etc. Columns BR to CA contain final result information. That is the result, the full time result and if available, the half time score as well.
 
 For each game there is: 
 1. Statistics on the two teams, such as ladder position, win-loss history, games played 
 2. Odds for home win, draw, away win (some-times is zero if odds not available) 
 3. The result for that game (including the half time result if available
 
-The dataset ranges from January 2016 to October 2017 and the statistics have been sourced from a few different websites. Odds come from BET365 and the results have been manually entered from http://www.soccerstats.com
+The dataset ranges from January 2016 to October 2017 and the statistics have been sourced from a few different websites. Odds come from BET365 and the results have been manually entered from [http://www.soccerstats.com](http://www.soccerstats.com)
 
-Get more insight about the columns in the data by hovering your mouse in front of the names <a href=https://www.soccerstats.com/latest.asp?league=germany3>here</a>
+Get more insight about the columns in the data by hovering your mouse in front of the names [here](https://www.soccerstats.com/latest.asp?league=germany3)
 
 **Data Location:** 
 - https://www.kaggle.com/frankpac/soccerdata
@@ -110,7 +110,7 @@ plt.show()
 ```
 
 
-![png](output_5_0.png)
+![png](league.png)
 
 
 
@@ -263,183 +263,6 @@ data['RESULT'].head()
 
 
 
-
-```python
-data.head()
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>league</th>
-      <th>teams_no</th>
-      <th>date</th>
-      <th>home_team</th>
-      <th>away_team</th>
-      <th>home_odd</th>
-      <th>draw_odd</th>
-      <th>away_odd</th>
-      <th>h_played</th>
-      <th>a_played</th>
-      <th>...</th>
-      <th>a_final</th>
-      <th>h_half</th>
-      <th>a_half</th>
-      <th>BTS</th>
-      <th>H1H</th>
-      <th>A1H</th>
-      <th>H2H</th>
-      <th>A2H</th>
-      <th>Unnamed: 79</th>
-      <th>Unnamed: 80</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>France-Ligue 2</td>
-      <td>20</td>
-      <td>2016-01-08</td>
-      <td>Ajaccio</td>
-      <td>Le Havre</td>
-      <td>2.63</td>
-      <td>2.97</td>
-      <td>3.24</td>
-      <td>19</td>
-      <td>19</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>France-Ligue 2</td>
-      <td>20</td>
-      <td>2016-01-08</td>
-      <td>Auxerre</td>
-      <td>Valenciennes</td>
-      <td>1.98</td>
-      <td>3.25</td>
-      <td>4.69</td>
-      <td>19</td>
-      <td>19</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>France-Ligue 2</td>
-      <td>20</td>
-      <td>2016-01-08</td>
-      <td>Bourg Peronnas</td>
-      <td>Creteil</td>
-      <td>2.00</td>
-      <td>3.52</td>
-      <td>4.14</td>
-      <td>19</td>
-      <td>19</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>France-Ligue 2</td>
-      <td>20</td>
-      <td>2016-01-08</td>
-      <td>Chamois</td>
-      <td>Dijon</td>
-      <td>2.82</td>
-      <td>3.06</td>
-      <td>2.91</td>
-      <td>19</td>
-      <td>19</td>
-      <td>...</td>
-      <td>2.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>France-Ligue 2</td>
-      <td>20</td>
-      <td>2016-01-08</td>
-      <td>Clermont</td>
-      <td>Evian</td>
-      <td>2.10</td>
-      <td>3.21</td>
-      <td>4.20</td>
-      <td>19</td>
-      <td>19</td>
-      <td>...</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1</td>
-      <td>0.0</td>
-      <td>0.0</td>
-      <td>1.0</td>
-      <td>0.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 81 columns</p>
-</div>
-
-
-
 <b>Relationship of playing at Home or Away with Result</b>
 
 
@@ -476,8 +299,6 @@ plt.show()
 ```
 
 
-![png](output_15_0.png)
-
 
 From the above two plots, we can see that playing at home (one with orange color) has great chance to win than playing away(one with green color).
 
@@ -487,7 +308,7 @@ _=data.hist(figsize=(16, 20), bins=50, xlabelsize=8, ylabelsize=8)
 ```
 
 
-![png](output_17_0.png)
+![png](skew.png)
 
 
 As we can see from the above distribution plot, most of features in the same group has same distribution. For example pa_ladder 1,2,3,4,5 with ph_ladder 1,2,3,4,5. So,we can merge the features.
@@ -502,7 +323,7 @@ plt.show()
 ```
 
 
-![png](output_19_0.png)
+![png](odd_corr.png)
 
 
 
@@ -516,7 +337,7 @@ plt.show()
 ```
 
 
-![png](output_20_0.png)
+![png](result_corr.png)
 
 
 
@@ -683,7 +504,7 @@ plt.show()
 ```
 
 
-![png](output_22_0.png)
+![png](corr.png)
 
 
 From the above correlation matrix when there is no correlation between 2 variables (when correlation is 0 or near 0) the color is gray. The darkest red means there is a perfect positive correlation, while the darkest blue means there is a perfect negative correlation. The matrix gives as interesting focus to drop or retain features and which features has great impact. But before decision we should resample the data to minimize influence of outliers.
@@ -709,7 +530,7 @@ _=target_count.plot(ax=ax, kind='bar')
     
 
 
-![png](output_24_1.png)
+![png](class_result.png)
 
 
 
