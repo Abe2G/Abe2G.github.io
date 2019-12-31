@@ -1,4 +1,5 @@
 
+
 ### Airline Sentiment Analysis Project
 
 #### Project Objective
@@ -8,7 +9,7 @@
         - Which reason commonly tweeted by customers for bad service?
         - Counting for retweeted negative tweets to shows which service is highly affecting.
 *    Classifying whether the sentiment of the tweets is positive, neutral, or negative using Machine Learning Techniques, then categorizing negative tweets for their reason.
-    
+
 #### Data Analysis
 
 
@@ -23,12 +24,87 @@ import numpy as np ## for numerical array processing
 ```python
 ##reading data
 data=pd.read_csv('twitter-airline/Tweets.csv')
-data.head()
 ```
 
+
 ```python
-data=data[['tweet_id','text','airline_sentiment','airline_sentiment_confidence','negativereason','airline','retweet_count','tweet_created']]
+data[['airline_sentiment','negativereason','airline','retweet_count','tweet_created']].head()
 ```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>airline_sentiment</th>
+      <th>negativereason</th>
+      <th>airline</th>
+      <th>retweet_count</th>
+      <th>tweet_created</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>neutral</td>
+      <td>NaN</td>
+      <td>Virgin America</td>
+      <td>0</td>
+      <td>2015-02-24 11:35:52 -0800</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>positive</td>
+      <td>NaN</td>
+      <td>Virgin America</td>
+      <td>0</td>
+      <td>2015-02-24 11:15:59 -0800</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>neutral</td>
+      <td>NaN</td>
+      <td>Virgin America</td>
+      <td>0</td>
+      <td>2015-02-24 11:15:48 -0800</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>negative</td>
+      <td>Bad Flight</td>
+      <td>Virgin America</td>
+      <td>0</td>
+      <td>2015-02-24 11:15:36 -0800</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>negative</td>
+      <td>Can't Tell</td>
+      <td>Virgin America</td>
+      <td>0</td>
+      <td>2015-02-24 11:14:45 -0800</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
@@ -55,26 +131,154 @@ data.info()
 semtiments=pd.crosstab(data.airline, data.airline_sentiment)
 semtiments
 ```
-| airline | negative | neutral | positive |
-| ------- | -------- | ------- | -------- |
-| American | 1960 | 463 | 336 |
-| Delta | 955 | 723 | 544 |
-| Southwest | 1186 | 664 | 570 |
-| US Airways | 2263 | 381 | 269 |
-| United | 2633 | 697 | 492 |
-| Virgin America | 181 | 171 | 152 |   
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>airline_sentiment</th>
+      <th>negative</th>
+      <th>neutral</th>
+      <th>positive</th>
+    </tr>
+    <tr>
+      <th>airline</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>American</th>
+      <td>1960</td>
+      <td>463</td>
+      <td>336</td>
+    </tr>
+    <tr>
+      <th>Delta</th>
+      <td>955</td>
+      <td>723</td>
+      <td>544</td>
+    </tr>
+    <tr>
+      <th>Southwest</th>
+      <td>1186</td>
+      <td>664</td>
+      <td>570</td>
+    </tr>
+    <tr>
+      <th>US Airways</th>
+      <td>2263</td>
+      <td>381</td>
+      <td>269</td>
+    </tr>
+    <tr>
+      <th>United</th>
+      <td>2633</td>
+      <td>697</td>
+      <td>492</td>
+    </tr>
+    <tr>
+      <th>Virgin America</th>
+      <td>181</td>
+      <td>171</td>
+      <td>152</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
 negative_tweet=data[(data['airline_sentiment']=='negative')]
-negative_tweet.head()
+negative_tweet[['airline','negativereason','text']].head()
 ```
 
-Most common words in negative tweets
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>airline</th>
+      <th>negativereason</th>
+      <th>text</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>Virgin America</td>
+      <td>Bad Flight</td>
+      <td>@VirginAmerica it's really aggressive to blast...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Virgin America</td>
+      <td>Can't Tell</td>
+      <td>@VirginAmerica and it's a really big bad thing...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Virgin America</td>
+      <td>Can't Tell</td>
+      <td>@VirginAmerica seriously would pay $30 a fligh...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Virgin America</td>
+      <td>Late Flight</td>
+      <td>@VirginAmerica SFO-PDX schedule is still MIA.</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Virgin America</td>
+      <td>Bad Flight</td>
+      <td>@VirginAmerica  I flew from NYC to SFO last we...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 
 ```python
-negative_tweet.airline.value_counts() #counts number of negative rate for each airline to identify worse airway of 2015
+negative_tweet.airline.value_counts() #counts number of negative rate for each airline to identify worest airway of 2015
 ```
 
 
@@ -89,6 +293,8 @@ negative_tweet.airline.value_counts() #counts number of negative rate for each a
     Name: airline, dtype: int64
 
 
+
+Most common words in negative tweets
 
 
 ```python
@@ -109,7 +315,7 @@ plotWords(neg_words)
 ```
 
 
-![png](output_12_0.png)
+![png](neg_tweet.png)
 
 
 The plot is showing wich airline service is more tweeted for negative sentiment and reason for negativity.
@@ -125,7 +331,7 @@ plotWords(pos_words)
 ```
 
 
-![png](output_14_0.png)
+![png](pos_tweet.png)
 
 
 appreciate, good, thanks, really, great, amazing, best, nice, happy, ... shows services on which customers are ok with airlines.
@@ -148,23 +354,13 @@ _=reason_count.plot(kind='bar')
 ```
 
 
-![png](output_17_0.png)
+![png](reason_cnt.png)
 
 
 
 ```python
 airline_neg_reason=negative_tweet.groupby('airline')['negativereason'].value_counts()
-airline_neg_reason.unstack()
 ```
-|Airlines|Bad Flight|Can't Tell|Cancelled Flight|Customer Service Issue|Damaged Luggage|Flight Attendant Complaints|Flight Booking Problems|Late Flight|Lost Luggage|longlines|
-|---|---|---|---|---|---|---|---|---|---|---|
-|American|87|198|246|768|12|87|130|249|149|34|
-|Delta|64|186|51|199|11|60|44|269|57|14|
-|Southwest|90|159|162|391|14|38|61|152|90|29|
-|US Airways|104|246|189|811|11|123|122|453|154|50|
-|United|216|379|181|681|22|168|144|525|269|48|
-|Virgin America|19|22|18|60|4|5|28|17|5|3|
- 
 
 
 ```python
@@ -180,15 +376,8 @@ def plot_sns(x,y,data):
     plt.show()
 plot_sns('negativereason','airline',negative_tweet)
 
-# plt.figure(figsize=(6, 8))
-# splot = sns.barplot(data=df, x = 'sex', y = 'total_bill', ci = None)
-# for p in splot.patches:
-# splot.annotate(format(p.get_height(), '.2f'), (p.get_x() + p.get_width() / 2., p.get_height()),
-#                ha = 'center', va = 'center', xytext = (0, 10), textcoords = 'offset points')
-```
 
-
-![png](output_19_0.png)
+![png](neg_service.png)
 
 
 The plot and table above interstingly depicts the United, US, and American airlines has worest service than Delta, Virgin America, and Southwest airlines. Except, Delta and Virgin America airways, the rest four has no good customer handling and United and US airways also mostly late on flight time. Comaratively, Virgin America is good than other and then Delta is next choise.
@@ -201,7 +390,7 @@ We will focus on top three airlines with negative sentiment
 ```python
 #time based analysis
 data['tweet_created']=data['tweet_created'].astype('datetime64[ns]') ## conversion of data type to datetime
-data.head()
+data[['airline','airline_sentiment','tweet_created','negativereason']].tail()
 ```
 
 
@@ -225,71 +414,47 @@ data.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>tweet_id</th>
-      <th>text</th>
-      <th>airline_sentiment</th>
-      <th>airline_sentiment_confidence</th>
-      <th>negativereason</th>
       <th>airline</th>
-      <th>retweet_count</th>
+      <th>airline_sentiment</th>
       <th>tweet_created</th>
+      <th>negativereason</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>570306133677760513</td>
-      <td>@VirginAmerica What @dhepburn said.</td>
-      <td>neutral</td>
-      <td>1.0000</td>
-      <td>NaN</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 19:35:52</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>570301130888122368</td>
-      <td>@VirginAmerica plus you've added commercials t...</td>
+      <th>14635</th>
+      <td>American</td>
       <td>positive</td>
-      <td>0.3486</td>
+      <td>2015-02-22 20:01:01</td>
       <td>NaN</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 19:15:59</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>570301083672813571</td>
-      <td>@VirginAmerica I didn't today... Must mean I n...</td>
+      <th>14636</th>
+      <td>American</td>
+      <td>negative</td>
+      <td>2015-02-22 19:59:46</td>
+      <td>Customer Service Issue</td>
+    </tr>
+    <tr>
+      <th>14637</th>
+      <td>American</td>
       <td>neutral</td>
-      <td>0.6837</td>
+      <td>2015-02-22 19:59:15</td>
       <td>NaN</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 19:15:48</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>570301031407624196</td>
-      <td>@VirginAmerica it's really aggressive to blast...</td>
+      <th>14638</th>
+      <td>American</td>
       <td>negative</td>
-      <td>1.0000</td>
-      <td>Bad Flight</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 19:15:36</td>
+      <td>2015-02-22 19:59:02</td>
+      <td>Customer Service Issue</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>570300817074462722</td>
-      <td>@VirginAmerica and it's a really big bad thing...</td>
-      <td>negative</td>
-      <td>1.0000</td>
-      <td>Can't Tell</td>
-      <td>Virgin America</td>
-      <td>0</td>
-      <td>2015-02-24 19:14:45</td>
+      <th>14639</th>
+      <td>American</td>
+      <td>neutral</td>
+      <td>2015-02-22 19:58:51</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>
@@ -302,14 +467,7 @@ data.head()
 data['tweet_created_date']=data.tweet_created.dt.date
 data['tweet_created_weekday_name']=data.tweet_created.dt.weekday_name
 data['tweet_created_hour']=data.tweet_created.dt.hour
-data.head()
-```
-
-
-```python
-negative_tweet=data[(data['airline_sentiment']=='negative')]
-neg_by_wkday = negative_tweet.groupby(['tweet_created_weekday_name']).negativereason.value_counts()
-neg_by_wkday.unstack()
+data[['airline','airline_sentiment','tweet_created_date','tweet_created_weekday_name','tweet_created_hour']].tail()
 ```
 
 
@@ -332,129 +490,68 @@ neg_by_wkday.unstack()
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>negativereason</th>
-      <th>Bad Flight</th>
-      <th>Can't Tell</th>
-      <th>Cancelled Flight</th>
-      <th>Customer Service Issue</th>
-      <th>Damaged Luggage</th>
-      <th>Flight Attendant Complaints</th>
-      <th>Flight Booking Problems</th>
-      <th>Late Flight</th>
-      <th>Lost Luggage</th>
-      <th>longlines</th>
-    </tr>
-    <tr>
+      <th></th>
+      <th>airline</th>
+      <th>airline_sentiment</th>
+      <th>tweet_created_date</th>
       <th>tweet_created_weekday_name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>tweet_created_hour</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Friday</th>
-      <td>71</td>
-      <td>119</td>
-      <td>52</td>
-      <td>207</td>
-      <td>4</td>
-      <td>41</td>
-      <td>47</td>
-      <td>237</td>
-      <td>57</td>
-      <td>14</td>
+      <th>14635</th>
+      <td>American</td>
+      <td>positive</td>
+      <td>2015-02-22</td>
+      <td>Sunday</td>
+      <td>20</td>
     </tr>
     <tr>
-      <th>Monday</th>
-      <td>121</td>
-      <td>316</td>
-      <td>227</td>
-      <td>791</td>
-      <td>13</td>
-      <td>105</td>
-      <td>122</td>
-      <td>399</td>
-      <td>207</td>
-      <td>45</td>
-    </tr>
-    <tr>
-      <th>Saturday</th>
-      <td>55</td>
-      <td>117</td>
-      <td>100</td>
-      <td>313</td>
-      <td>9</td>
-      <td>42</td>
-      <td>56</td>
-      <td>135</td>
-      <td>53</td>
-      <td>21</td>
-    </tr>
-    <tr>
-      <th>Sunday</th>
-      <td>103</td>
-      <td>175</td>
-      <td>210</td>
-      <td>547</td>
-      <td>11</td>
-      <td>105</td>
-      <td>73</td>
-      <td>360</td>
-      <td>121</td>
-      <td>39</td>
-    </tr>
-    <tr>
-      <th>Thursday</th>
-      <td>57</td>
-      <td>108</td>
-      <td>31</td>
-      <td>197</td>
-      <td>5</td>
-      <td>37</td>
-      <td>54</td>
-      <td>124</td>
-      <td>38</td>
-      <td>15</td>
-    </tr>
-    <tr>
-      <th>Tuesday</th>
-      <td>112</td>
-      <td>241</td>
-      <td>173</td>
-      <td>615</td>
+      <th>14636</th>
+      <td>American</td>
+      <td>negative</td>
+      <td>2015-02-22</td>
+      <td>Sunday</td>
       <td>19</td>
-      <td>102</td>
-      <td>128</td>
-      <td>268</td>
-      <td>160</td>
-      <td>27</td>
     </tr>
     <tr>
-      <th>Wednesday</th>
-      <td>61</td>
-      <td>114</td>
-      <td>54</td>
-      <td>240</td>
-      <td>13</td>
-      <td>49</td>
-      <td>49</td>
-      <td>142</td>
-      <td>88</td>
-      <td>17</td>
+      <th>14637</th>
+      <td>American</td>
+      <td>neutral</td>
+      <td>2015-02-22</td>
+      <td>Sunday</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>14638</th>
+      <td>American</td>
+      <td>negative</td>
+      <td>2015-02-22</td>
+      <td>Sunday</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>14639</th>
+      <td>American</td>
+      <td>neutral</td>
+      <td>2015-02-22</td>
+      <td>Sunday</td>
+      <td>19</td>
     </tr>
   </tbody>
 </table>
 </div>
 
 
+
+Negative reason of tweet vs day of the week. Which day flight has most negative indicator?
+
+
+```python
+negative_tweet=data[(data['airline_sentiment']=='negative')]
+neg_by_wkday = negative_tweet.groupby(['tweet_created_weekday_name']).negativereason.value_counts()
+```
 
 
 ```python
@@ -471,7 +568,7 @@ neg_by_wkday.set_ylabel("Negative Reason")
 
 
 
-![png](output_24_1.png)
+![png](week_day.png)
 
 
 The plot clearly depicts expect Friday, Saturday, Thursady and Wednesday flights are comaratively good. Monday, Sunday and Tuesday flights has customer service problem and are mostly late (the green lines also shows that probability of cancelation of flights by Monday, Sunday and Tuesday is high).
@@ -493,7 +590,7 @@ neg_by_time.set_ylabel("Negative Reason")
 
 
 
-![png](output_26_1.png)
+![png](time.png)
 
 
 Time based analysis is showing something good look to optimize airline service.
