@@ -278,9 +278,9 @@ for p in ax.patches:
 plt.title("Teams played at Home Vs. Chance of win/Loss/Draw")
 plt.show()
 ```
+Only sample for look. The first 500 teams
 
-
-![png](output_13_0.png)
+![png](home.png)
 
 
 Here, class HOME means WIN 
@@ -297,8 +297,9 @@ for p in ax.patches:
 plt.title("Teams played at Away Vs. Chance of win/Loss/Draw")
 plt.show()
 ```
+Only sample for look. The first 500 teams
 
-
+![png](away.png)
 
 From the above two plots, we can see that playing at home (one with orange color) has great chance to win than playing away(one with green color).
 
