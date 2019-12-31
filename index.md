@@ -9,9 +9,8 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 ### Natural Language Processing
 - [Amharic Word Embedding](Am_FastText.md)
 - [Sentiment analysis](airline_sentiment_classification.md)
-- [Amharic simplle text preprocessing](https://github.com/Abe2G/Amharic-Simple-Text-Preprocessing-Usin-Python/blob/master/README.md)
-- Text Similarity
-- Tranisfer Learning with Universal Encoders
+- [Amharic simplle text preprocessing](am-preprocess.md)
+- Tranisfer Learning with Universal Encoders and Transformers (XLNet and BERT)
 
 ### Computer Vision Projects
 - Amharic Character recoginition
