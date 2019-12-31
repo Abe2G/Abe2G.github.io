@@ -467,7 +467,7 @@ data[['airline','airline_sentiment','tweet_created','negativereason']].tail()
 data['tweet_created_date']=data.tweet_created.dt.date
 data['tweet_created_weekday_name']=data.tweet_created.dt.weekday_name
 data['tweet_created_hour']=data.tweet_created.dt.hour
-data[['airline','airline_sentiment','tweet_created_date','tweet_created_weekday_name','tweet_created_hour']].tail()
+data[['airline','airline_sentiment','tweet_created_weekday_name','tweet_created_hour']].tail()
 ```
 
 
@@ -493,7 +493,6 @@ data[['airline','airline_sentiment','tweet_created_date','tweet_created_weekday_
       <th></th>
       <th>airline</th>
       <th>airline_sentiment</th>
-      <th>tweet_created_date</th>
       <th>tweet_created_weekday_name</th>
       <th>tweet_created_hour</th>
     </tr>
@@ -503,7 +502,6 @@ data[['airline','airline_sentiment','tweet_created_date','tweet_created_weekday_
       <th>14635</th>
       <td>American</td>
       <td>positive</td>
-      <td>2015-02-22</td>
       <td>Sunday</td>
       <td>20</td>
     </tr>
@@ -511,7 +509,6 @@ data[['airline','airline_sentiment','tweet_created_date','tweet_created_weekday_
       <th>14636</th>
       <td>American</td>
       <td>negative</td>
-      <td>2015-02-22</td>
       <td>Sunday</td>
       <td>19</td>
     </tr>
@@ -519,7 +516,6 @@ data[['airline','airline_sentiment','tweet_created_date','tweet_created_weekday_
       <th>14637</th>
       <td>American</td>
       <td>neutral</td>
-      <td>2015-02-22</td>
       <td>Sunday</td>
       <td>19</td>
     </tr>
@@ -527,7 +523,6 @@ data[['airline','airline_sentiment','tweet_created_date','tweet_created_weekday_
       <th>14638</th>
       <td>American</td>
       <td>negative</td>
-      <td>2015-02-22</td>
       <td>Sunday</td>
       <td>19</td>
     </tr>
@@ -535,7 +530,6 @@ data[['airline','airline_sentiment','tweet_created_date','tweet_created_weekday_
       <th>14639</th>
       <td>American</td>
       <td>neutral</td>
-      <td>2015-02-22</td>
       <td>Sunday</td>
       <td>19</td>
     </tr>
