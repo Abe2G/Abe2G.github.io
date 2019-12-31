@@ -7,7 +7,7 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Exploratory Data Analysis for Predicting Eurropean Soccer Data](ExploratoryAnalysis.md)
 
 ### Natural Language Processing
-- [Amharic Word Embedding](https://github.com/Abe2G/FastText-Amharic-Embedding-Vectors/blob/master/README.md)
+- [Amharic Word Embedding](Am_FastText.md)
 - [Sentiment analysis](airline_sentiment_classification.md)
 - [Amharic simplle text preprocessing](https://github.com/Abe2G/Amharic-Simple-Text-Preprocessing-Usin-Python/blob/master/README.md)
 - Text Similarity
