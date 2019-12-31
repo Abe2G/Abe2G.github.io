@@ -1,9 +1,9 @@
 ## Text Preprocessing for Amharic
 
 When working with NLP, preprocessing text is one of important process to get clean and formatted data before passing it to the model.
-Most of resourced languages suach as English and other European countries has tools such as NLTK, that allows to perform text preprocessing , but the same history is not tru for Amharic. Amharic is an offical language of the Ethiopian government spoken by more than 100M people arroung the world and all over Ethiopia. Amharic is not written with latin representation it uses geez characters and this made the steps a bit challenging to use.
+Most of resourced languages suach as English and other European countries has tools such as NLTK, that allows to perform text preprocessing , but the same history is not true for Amharic. Amharic is an offical language of the Ethiopian government spoken by more than 100M people arroung the world and all over Ethiopia. Amharic script is not latin it uses geez script and this made the steps a bit challenging to use.
 
-The aim of this notebook is to support researchers working in Amharic based NLP tasks. The following preprocessing steps are included:
+The aim of this notebook is to support researchers working in NLP tasks for Amharic. The following preprocessing steps are included:
 * Short form expansion
 * Multi-word detection
 * Character level miss-match normalization
@@ -123,6 +123,7 @@ In Amharic, the individual words in a sentence are separated by two dots (: ·àÅ·
 Then using n-gram multi word detection approach, multiwords are detected.
 * The first process in this component is forming all possible bi-grams from tokenized input text.
 * Next, chi-square computation is applied to detect multi-words from the possible bigrams those their chi-square value is greater than experimentally chosen threshold value.
+
 ``` python
 from nltk import BigramCollocationFinder
 import nltk.collocations 
