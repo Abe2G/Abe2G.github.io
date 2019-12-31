@@ -8,8 +8,8 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 
 ### Natural Language Processing
 - [Amharic Word Embedding](Am_FastText.md)
-- [Sentiment analysis](airline_sentiment_classification.md)
-- [Amharic simplle text preprocessing](am-preprocess.md)
+- [Airlines Tweet Sentiment classification](airline_sentiment_classification.md)
+- [Text pre-processing for Amharic](am-preprocess.md)
 - Tranisfer Learning with Universal Encoders and Transformers (XLNet and BERT)
 
 ### Computer Vision Projects
