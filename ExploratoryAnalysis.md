@@ -282,9 +282,7 @@ Only sample for look. The first 500 teams
 
 ![png](home.png)
 
-
-Here, class HOME means WIN 
-
+From the above plot, we can see that playing at home (one with orange color) has great chance to win than playing away(one with green color).
 
 ```python
 sns.set(rc={'figure.figsize':(10,300)})
@@ -301,8 +299,7 @@ Only sample for look. The first 500 teams
 
 ![png](away.png)
 
-From the above two plots, we can see that playing at home (one with orange color) has great chance to win than playing away(one with green color).
-
+The same result is shown for away also. Most of the teams has better chance to win at home than away.
 
 ```python
 _=data.hist(figsize=(16, 20), bins=50, xlabelsize=8, ylabelsize=8)
