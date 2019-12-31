@@ -10,7 +10,7 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Amharic Word Embedding](Am_FastText.md)
 - [Airlines Tweet Sentiment classification](airline_sentiment_classification.md)
 - [Text pre-processing for Amharic](am-preprocess.md)
-- Tranisfer Learning with Universal Encoders and Transformers (XLNet and BERT)
+- Transfer Learning with Universal Encoders and Transformers (XLNet and BERT)
 
 ### Computer Vision Projects
 - Amharic Character recoginition
