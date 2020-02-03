@@ -6,9 +6,10 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Simple Tweeter Data Analysis](twitter_minner.md)
 - [Exploratory Data Analysis for Predicting Eurropean Soccer Data](ExploratoryAnalysis.md)
 ### Predictive Analysis
-#### Classification
+Contains machine learning classification and regression projects.
+1. Classification
 - [Mobile Money and Financial Inclusion in Tanzania Challenge]()
-- [Data Science Nigeria 2019 Challenge #1: Insurance Prediction]()
+- [Insurance Prediction]()
 - [Financial Inclusion in Africa]()
 #### Regression
 - [Flight Delay Prediction Challenge]()
@@ -23,9 +24,8 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Text pre-processing for Amharic](am-preprocess.md)
 #### Transfer Learning for NLP
 - [Universal Encoders]() 
-- [Transformers (XLNet and BERT)]()
+- [Transformers (XLNet and BERT)](transformer.md)
 - [Fine-tunning with transformers: Text Classification]()
-
 ### Computer Vision Projects
 - [ICLR Workshop Challenge #1: CGIAR Computer Vision for Crop Disease]()
 - [Amharic Character recoginition]()
