@@ -10,7 +10,6 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Amharic Word Embedding](Am_FastText.md)
 - [Text pre-processing for Amharic](am-preprocess.md)
 - [Deep Learning for Text classification](airline_sentiment_classification.md)
-
 #### Transfer Learning for NLP
 - [Universal Encoders]() 
 - [Transformers (XLNet and BERT)](transformer.md)
@@ -20,13 +19,16 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Mobile Money and Financial Inclusion in Tanzania Challenge]()
 - [Insurance Prediction]()
 - [Financial Inclusion in Africa]()
+
 ### Regression: Predictive Analysis
 - [Flight Delay Prediction Challenge]()
 - [Fraud Detection in Electricity and Gas Consumption Challenge]()
 - [Working with English Premier League Seasonal Data: Predicting winning team](english_premier_league_data_analysis.md)
+
 ### A/B Testing Projects
 - [Udacity Hypothesis Testing project]()
 - [ML for hypothesis testing]()
+
 ### Computer Vision Projects
 - [ICLR Workshop Challenge #1: CGIAR Computer Vision for Crop Disease]()
 - [Amharic Character recoginition]()
