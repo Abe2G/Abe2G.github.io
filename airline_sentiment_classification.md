@@ -72,74 +72,7 @@ Next lets apply some preprocessing in tweets
 ```python
 # dictionary of commonly used contractions
 contraction_mapping = {
-    "'cause": 'because',',cause': 'because',';cause': 'because',"ain't": 'am not','ain,t': 'am not',
-    'ain;t': 'am not','ain´t': 'am not','ain’t': 'am not',"aren't": 'are not',
-    'aren,t': 'are not','aren;t': 'are not','aren´t': 'are not','aren’t': 'are not',"can't": 'cannot',"can't've": 'cannot have','can,t': 'cannot','can,t,ve': 'cannot have',
-    'can;t': 'cannot','can;t;ve': 'cannot have',
-    'can´t': 'cannot','can´t´ve': 'cannot have','can’t': 'cannot','can’t’ve': 'cannot have',
-    "could've": 'could have','could,ve': 'could have','could;ve': 'could have',"couldn't": 'could not',"couldn't've": 'could not have','couldn,t': 'could not','couldn,t,ve': 'could not have','couldn;t': 'could not',
-    'couldn;t;ve': 'could not have','couldn´t': 'could not',
-    'couldn´t´ve': 'could not have','couldn’t': 'could not','couldn’t’ve': 'could not have','could´ve': 'could have',
-    'could’ve': 'could have',"didn't": 'did not','didn,t': 'did not','didn;t': 'did not','didn´t': 'did not',
-    'didn’t': 'did not',"doesn't": 'does not','doesn,t': 'does not','doesn;t': 'does not','doesn´t': 'does not',
-    'doesn’t': 'does not',"don't": 'do not','don,t': 'do not','don;t': 'do not','don´t': 'do not','don’t': 'do not',
-    "hadn't": 'had not',"hadn't've": 'had not have','hadn,t': 'had not','hadn,t,ve': 'had not have','hadn;t': 'had not',
-    'hadn;t;ve': 'had not have','hadn´t': 'had not','hadn´t´ve': 'had not have','hadn’t': 'had not','hadn’t’ve': 'had not have',"hasn't": 'has not','hasn,t': 'has not','hasn;t': 'has not','hasn´t': 'has not','hasn’t': 'has not',
-    "haven't": 'have not','haven,t': 'have not','haven;t': 'have not','haven´t': 'have not','haven’t': 'have not',"he'd": 'he would',
-    "he'd've": 'he would have',"he'll": 'he will',
-    "he's": 'he is','he,d': 'he would','he,d,ve': 'he would have','he,ll': 'he will','he,s': 'he is','he;d': 'he would',
-    'he;d;ve': 'he would have','he;ll': 'he will','he;s': 'he is','he´d': 'he would','he´d´ve': 'he would have','he´ll': 'he will',
-    'he´s': 'he is','he’d': 'he would','he’d’ve': 'he would have','he’ll': 'he will','he’s': 'he is',"how'd": 'how did',"how'll": 'how will',
-    "how's": 'how is','how,d': 'how did','how,ll': 'how will','how,s': 'how is','how;d': 'how did','how;ll': 'how will',
-    'how;s': 'how is','how´d': 'how did','how´ll': 'how will','how´s': 'how is','how’d': 'how did','how’ll': 'how will',
-    'how’s': 'how is',"i'd": 'i would',"i'll": 'i will',"i'm": 'i am',"i've": 'i have','i,d': 'i would','i,ll': 'i will',
-    'i,m': 'i am','i,ve': 'i have','i;d': 'i would','i;ll': 'i will','i;m': 'i am','i;ve': 'i have',"isn't": 'is not',
-    'isn,t': 'is not','isn;t': 'is not','isn´t': 'is not','isn’t': 'is not',"it'd": 'it would',"it'll": 'it will',
-    "it's": 'it is','it,d': 'it would','it,ll': 'it will','it,s': 'it is','it;d': 'it would','it;ll': 'it will','it;s': 'it is','it´d': 'it would','it´ll': 'it will','it´s': 'it is',
-    'it’d': 'it would','it’ll': 'it will','it’s': 'it is',
-    'i´d': 'i would','i´ll': 'i will','i´m': 'i am','i´ve': 'i have','i’d': 'i would','i’ll': 'i will','i’m': 'i am',
-    'i’ve': 'i have',"let's": 'let us','let,s': 'let us','let;s': 'let us','let´s': 'let us',
-    'let’s': 'let us',"ma'am": 'madam','ma,am': 'madam','ma;am': 'madam',"mayn't": 'may not','mayn,t': 'may not','mayn;t': 'may not',
-    'mayn´t': 'may not','mayn’t': 'may not','ma´am': 'madam','ma’am': 'madam',"might've": 'might have','might,ve': 'might have','might;ve': 'might have',"mightn't": 'might not','mightn,t': 'might not','mightn;t': 'might not','mightn´t': 'might not',
-    'mightn’t': 'might not','might´ve': 'might have','might’ve': 'might have',"must've": 'must have','must,ve': 'must have','must;ve': 'must have',
-    "mustn't": 'must not','mustn,t': 'must not','mustn;t': 'must not','mustn´t': 'must not','mustn’t': 'must not','must´ve': 'must have',
-    'must’ve': 'must have',"needn't": 'need not','needn,t': 'need not','needn;t': 'need not','needn´t': 'need not','needn’t': 'need not',"oughtn't": 'ought not','oughtn,t': 'ought not','oughtn;t': 'ought not',
-    'oughtn´t': 'ought not','oughtn’t': 'ought not',"sha'n't": 'shall not','sha,n,t': 'shall not','sha;n;t': 'shall not',"shan't": 'shall not',
-    'shan,t': 'shall not','shan;t': 'shall not','shan´t': 'shall not','shan’t': 'shall not','sha´n´t': 'shall not','sha’n’t': 'shall not',
-    "she'd": 'she would',"she'll": 'she will',"she's": 'she is','she,d': 'she would','she,ll': 'she will',
-    'she,s': 'she is','she;d': 'she would','she;ll': 'she will','she;s': 'she is','she´d': 'she would','she´ll': 'she will',
-    'she´s': 'she is','she’d': 'she would','she’ll': 'she will','she’s': 'she is',"should've": 'should have','should,ve': 'should have','should;ve': 'should have',
-    "shouldn't": 'should not','shouldn,t': 'should not','shouldn;t': 'should not','shouldn´t': 'should not','shouldn’t': 'should not','should´ve': 'should have',
-    'should’ve': 'should have',"that'd": 'that would',"that's": 'that is','that,d': 'that would','that,s': 'that is','that;d': 'that would',
-    'that;s': 'that is','that´d': 'that would','that´s': 'that is','that’d': 'that would','that’s': 'that is',"there'd": 'there had',
-    "there's": 'there is','there,d': 'there had','there,s': 'there is','there;d': 'there had','there;s': 'there is',
-    'there´d': 'there had','there´s': 'there is','there’d': 'there had','there’s': 'there is',
-    "they'd": 'they would',"they'll": 'they will',"they're": 'they are',"they've": 'they have',
-    'they,d': 'they would','they,ll': 'they will','they,re': 'they are','they,ve': 'they have','they;d': 'they would','they;ll': 'they will','they;re': 'they are',
-    'they;ve': 'they have','they´d': 'they would','they´ll': 'they will','they´re': 'they are','they´ve': 'they have','they’d': 'they would','they’ll': 'they will',
-    'they’re': 'they are','they’ve': 'they have',"wasn't": 'was not','wasn,t': 'was not','wasn;t': 'was not','wasn´t': 'was not',
-    'wasn’t': 'was not',"we'd": 'we would',"we'll": 'we will',"we're": 'we are',"we've": 'we have','we,d': 'we would','we,ll': 'we will',
-    'we,re': 'we are','we,ve': 'we have','we;d': 'we would','we;ll': 'we will','we;re': 'we are','we;ve': 'we have',
-    "weren't": 'were not','weren,t': 'were not','weren;t': 'were not','weren´t': 'were not','weren’t': 'were not','we´d': 'we would','we´ll': 'we will',
-    'we´re': 'we are','we´ve': 'we have','we’d': 'we would','we’ll': 'we will','we’re': 'we are','we’ve': 'we have',"what'll": 'what will',"what're": 'what are',"what's": 'what is',
-    "what've": 'what have','what,ll': 'what will','what,re': 'what are','what,s': 'what is','what,ve': 'what have','what;ll': 'what will','what;re': 'what are',
-    'what;s': 'what is','what;ve': 'what have','what´ll': 'what will',
-    'what´re': 'what are','what´s': 'what is','what´ve': 'what have','what’ll': 'what will','what’re': 'what are','what’s': 'what is',
-    'what’ve': 'what have',"where'd": 'where did',"where's": 'where is','where,d': 'where did','where,s': 'where is','where;d': 'where did',
-    'where;s': 'where is','where´d': 'where did','where´s': 'where is','where’d': 'where did','where’s': 'where is',
-    "who'll": 'who will',"who's": 'who is','who,ll': 'who will','who,s': 'who is','who;ll': 'who will','who;s': 'who is',
-    'who´ll': 'who will','who´s': 'who is','who’ll': 'who will','who’s': 'who is',"won't": 'will not','won,t': 'will not','won;t': 'will not',
-    'won´t': 'will not','won’t': 'will not',"wouldn't": 'would not','wouldn,t': 'would not','wouldn;t': 'would not','wouldn´t': 'would not',
-    'wouldn’t': 'would not',"you'd": 'you would',"you'll": 'you will',"you're": 'you are','you,d': 'you would','you,ll': 'you will',
-    'you,re': 'you are','you;d': 'you would','you;ll': 'you will',
-    'you;re': 'you are','you´d': 'you would','you´ll': 'you will','you´re': 'you are','you’d': 'you would','you’ll': 'you will','you’re': 'you are',
-    '´cause': 'because','’cause': 'because',"you've": "you have","could'nt": 'could not',
-    "havn't": 'have not',"here’s": "here is",'i""m': 'i am',"i'am": 'i am',"i'l": "i will","i'v": 'i have',"wan't": 'want',"was'nt": "was not","who'd": "who would",
-    "who're": "who are","who've": "who have","why'd": "why would","would've": "would have","y'all": "you all","y'know": "you know","you.i": "you i",
-    "your'e": "you are","arn't": "are not","agains't": "against","c'mon": "common","doens't": "does not",'don""t': "do not","dosen't": "does not",
-    "dosn't": "does not","shoudn't": "should not","that'll": "that will","there'll": "there will","there're": "there are",
-    "this'll": "this all","u're": "you are", "ya'll": "you all","you'r": "you are","you’ve": "you have","d'int": "did not","did'nt": "did not","din't": "did not","dont't": "do not","gov't": "government",
-    "i'ma": "i am","is'nt": "is not"}
+    "'cause": 'because',',cause': 'because',';cause': 'because',"ain't": 'am not','ain,t': 'am not'} #
 ```
 
 
@@ -252,7 +185,7 @@ Next lets build model that predict sentiment class for each tweets. I will compa
 1. Creating vocabulary
 2. Prepare data for CNN
 3. Embed (represent each words in a sequence to its word vector (real-valued low-dimensional dense vector))
-4. Creating model
+4. Defining architectural model
 5. Training (fitting data to the model)
 6. Evaluation with test data
 
@@ -268,15 +201,6 @@ from tensorflow.keras.layers import Embedding,Convolution1D, Flatten, GRU, Dense
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 ```
-
-
-<p style="color: red;">
-The default version of TensorFlow in Colab will soon switch to TensorFlow 2.x.<br>
-We recommend you <a href="https://www.tensorflow.org/guide/migrate" target="_blank">upgrade</a> now 
-or ensure your notebook will continue to use TensorFlow 1.x via the <code>%tensorflow_version 1.x</code> magic:
-<a href="https://colab.research.google.com/notebooks/tensorflow_version.ipynb" target="_blank">more info</a>.</p>
-
-
 
     Using TensorFlow backend.
     
@@ -335,10 +259,8 @@ E=get_embeddings(vocab)
 print(E.shape)
 print(X_train.shape,X_test.shape, y_train.shape,y_test.shape)
 ```
-
     I0206 09:39:37.320648 28768 <ipython-input-29-4dbf4e1504e2>:16] Fitting tokenizer
     
-
     (15593, 200)
     (13176, 35) (1464, 35) (13176,) (1464,)
     
@@ -647,57 +569,9 @@ from transformers import BertTokenizer
 # Load the BERT tokenizer.
 print('Loading BERT tokenizer...')
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased', do_lower_case=True)
-```
-
-    Collecting transformers
-    [?25l  Downloading https://files.pythonhosted.org/packages/ee/fc/bd726a15ab2c66dc09306689d04da07a3770dad724f0883f0a4bfb745087/transformers-2.4.1-py3-none-any.whl (475kB)
-    [K     |████████████████████████████████| 481kB 9.0MB/s 
-    [?25hRequirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.6/dist-packages (from transformers) (2019.12.20)
-    Requirement already satisfied: filelock in /usr/local/lib/python3.6/dist-packages (from transformers) (3.0.12)
-    Collecting tokenizers==0.0.11
-    [?25l  Downloading https://files.pythonhosted.org/packages/5e/36/7af38d572c935f8e0462ec7b4f7a46d73a2b3b1a938f50a5e8132d5b2dc5/tokenizers-0.0.11-cp36-cp36m-manylinux1_x86_64.whl (3.1MB)
-    [K     |████████████████████████████████| 3.1MB 60.0MB/s 
-    [?25hRequirement already satisfied: requests in /usr/local/lib/python3.6/dist-packages (from transformers) (2.21.0)
-    Requirement already satisfied: boto3 in /usr/local/lib/python3.6/dist-packages (from transformers) (1.11.9)
-    Requirement already satisfied: tqdm>=4.27 in /usr/local/lib/python3.6/dist-packages (from transformers) (4.28.1)
-    Collecting sacremoses
-    [?25l  Downloading https://files.pythonhosted.org/packages/a6/b4/7a41d630547a4afd58143597d5a49e07bfd4c42914d8335b2a5657efc14b/sacremoses-0.0.38.tar.gz (860kB)
-    [K     |████████████████████████████████| 870kB 42.7MB/s 
-    [?25hRequirement already satisfied: numpy in /usr/local/lib/python3.6/dist-packages (from transformers) (1.17.5)
-    Collecting sentencepiece
-    [?25l  Downloading https://files.pythonhosted.org/packages/74/f4/2d5214cbf13d06e7cb2c20d84115ca25b53ea76fa1f0ade0e3c9749de214/sentencepiece-0.1.85-cp36-cp36m-manylinux1_x86_64.whl (1.0MB)
-    [K     |████████████████████████████████| 1.0MB 47.2MB/s 
-    [?25hRequirement already satisfied: urllib3<1.25,>=1.21.1 in /usr/local/lib/python3.6/dist-packages (from requests->transformers) (1.24.3)
-    Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.6/dist-packages (from requests->transformers) (2019.11.28)
-    Requirement already satisfied: idna<2.9,>=2.5 in /usr/local/lib/python3.6/dist-packages (from requests->transformers) (2.8)
-    Requirement already satisfied: chardet<3.1.0,>=3.0.2 in /usr/local/lib/python3.6/dist-packages (from requests->transformers) (3.0.4)
-    Requirement already satisfied: s3transfer<0.4.0,>=0.3.0 in /usr/local/lib/python3.6/dist-packages (from boto3->transformers) (0.3.2)
-    Requirement already satisfied: jmespath<1.0.0,>=0.7.1 in /usr/local/lib/python3.6/dist-packages (from boto3->transformers) (0.9.4)
-    Requirement already satisfied: botocore<1.15.0,>=1.14.9 in /usr/local/lib/python3.6/dist-packages (from boto3->transformers) (1.14.9)
-    Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from sacremoses->transformers) (1.12.0)
-    Requirement already satisfied: click in /usr/local/lib/python3.6/dist-packages (from sacremoses->transformers) (7.0)
-    Requirement already satisfied: joblib in /usr/local/lib/python3.6/dist-packages (from sacremoses->transformers) (0.14.1)
-    Requirement already satisfied: docutils<0.16,>=0.10 in /usr/local/lib/python3.6/dist-packages (from botocore<1.15.0,>=1.14.9->boto3->transformers) (0.15.2)
-    Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in /usr/local/lib/python3.6/dist-packages (from botocore<1.15.0,>=1.14.9->boto3->transformers) (2.6.1)
-    Building wheels for collected packages: sacremoses
-      Building wheel for sacremoses (setup.py) ... [?25l[?25hdone
-      Created wheel for sacremoses: filename=sacremoses-0.0.38-cp36-none-any.whl size=884628 sha256=d65a5ae65d0c8bcb0636edea1e6007e82654291701b6077a75776c190d594fc7
-      Stored in directory: /root/.cache/pip/wheels/6d/ec/1a/21b8912e35e02741306f35f66c785f3afe94de754a0eaf1422
-    Successfully built sacremoses
-    Installing collected packages: tokenizers, sacremoses, sentencepiece, transformers
-    Successfully installed sacremoses-0.0.38 sentencepiece-0.1.85 tokenizers-0.0.11 transformers-2.4.1
     Loading BERT tokenizer...
-    
+   
 
-
-    HBox(children=(IntProgress(value=0, description='Downloading', max=231508, style=ProgressStyle(description_wid…
-
-
-    
-    
-
-
-```python
 #prepare dats for tokenizer and tokenize each data points then return list of list
 tweet_train_tokens = list(map(lambda t: ['[CLS]'] + tokenizer.tokenize(t) + ['[SEP]'], x_train)) 
 tweet_test_tokens = list(map(lambda t: ['[CLS]'] + tokenizer.tokenize(t) + ['[SEP]'], x_test)) 
@@ -731,20 +605,9 @@ pad_tweet_train = pad_sequences(train_indexed_tokens, maxlen=52, truncating="pos
 print(pad_tweet_train.shape)
 pad_tweet_test = pad_sequences(test_indexed_tokens, maxlen=52, truncating="post", padding="post", dtype="int")
 pad_tweet_test.shape
-
 ```
-
     (13176, 52)
-    
-
-
-
-
     (1464, 52)
-
-
-
-
 ```python
 train_masks = [[float(i > 0) for i in ii] for ii in pad_tweet_train]
 test_masks = [[float(i > 0) for i in ii] for ii in pad_tweet_test]
@@ -761,8 +624,6 @@ The following are BertModel interfaces included under huggingface:
 - BertForTokenClassification
 - BertForQuestionAnswering
 
-
-
 ```python
 from transformers import BertForSequenceClassification, AdamW, BertConfig
 
@@ -778,326 +639,8 @@ model = BertForSequenceClassification.from_pretrained(
 # Tell pytorch to run this model on the GPU.
 model.cuda() 
 ```
-
-
-    HBox(children=(IntProgress(value=0, description='Downloading', max=361, style=ProgressStyle(description_width=…
-
-
-    
-    
-
-
-    HBox(children=(IntProgress(value=0, description='Downloading', max=440473133, style=ProgressStyle(description_…
-
-
-    
-    
-
-
-
-
-    BertForSequenceClassification(
-      (bert): BertModel(
-        (embeddings): BertEmbeddings(
-          (word_embeddings): Embedding(30522, 768, padding_idx=0)
-          (position_embeddings): Embedding(512, 768)
-          (token_type_embeddings): Embedding(2, 768)
-          (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-          (dropout): Dropout(p=0.1, inplace=False)
-        )
-        (encoder): BertEncoder(
-          (layer): ModuleList(
-            (0): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (1): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (2): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (3): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (4): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (5): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (6): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (7): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (8): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (9): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (10): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-            (11): BertLayer(
-              (attention): BertAttention(
-                (self): BertSelfAttention(
-                  (query): Linear(in_features=768, out_features=768, bias=True)
-                  (key): Linear(in_features=768, out_features=768, bias=True)
-                  (value): Linear(in_features=768, out_features=768, bias=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-                (output): BertSelfOutput(
-                  (dense): Linear(in_features=768, out_features=768, bias=True)
-                  (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                  (dropout): Dropout(p=0.1, inplace=False)
-                )
-              )
-              (intermediate): BertIntermediate(
-                (dense): Linear(in_features=768, out_features=3072, bias=True)
-              )
-              (output): BertOutput(
-                (dense): Linear(in_features=3072, out_features=768, bias=True)
-                (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
-                (dropout): Dropout(p=0.1, inplace=False)
-              )
-            )
-          )
-        )
-        (pooler): BertPooler(
-          (dense): Linear(in_features=768, out_features=768, bias=True)
-          (activation): Tanh()
-        )
-      )
-      (dropout): Dropout(p=0.1, inplace=False)
-      (classifier): Linear(in_features=768, out_features=3, bias=True)
-    )
-
-
-
-
-```python
+#removed model architectural detail
+```
 # Convert all inputs and labels into torch tensors, the required datatype 
 # for our model.
 
@@ -1130,22 +673,18 @@ test_dataloader = DataLoader(test_dataset, sampler=test_sampler, batch_size=BATC
 
 ```
 
-
 ```python
 del train_dataset,test_dataset,test_sampler,train_sampler
 ```
-
 
 ```python
 del data, Y, tweet
 ```
 
-
 ```python
 # Get all of the model's parameters as a list of tuples.
 params = list(model.named_parameters())
 ```
-
 
 ```python
 # Note: AdamW is a class from the huggingface library
