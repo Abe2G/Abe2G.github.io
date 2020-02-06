@@ -11,9 +11,8 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Text pre-processing for Amharic](am-preprocess.md)
 - [Deep Learning for Text classification](airline_sentiment_classification.md)
 #### Transfer Learning for NLP
-- [Universal Encoders]() 
-- [Transformers (XLNet and BERT)](transformer.md)
-- [Fine-tunning with transformers: Text Classification]()
+- [Universal Encoders: ELMO and Google Universal Encoders](universal_encoders.md) 
+- [Fine-tunning with transformers: Text Classification(XLNet, BERT, ROBERTa, XLM)](transformer.md)
 
 ### Classification: Predictive Analysis
 - [Mobile Money and Financial Inclusion in Tanzania Challenge]()
