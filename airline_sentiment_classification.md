@@ -49,8 +49,6 @@ tweet.columns ## to get name of features in the data
 ```
 
 
-
-
     Index(['tweet_id', 'airline_sentiment', 'airline_sentiment_confidence',
            'negativereason', 'negativereason_confidence', 'airline',
            'airline_sentiment_gold', 'name', 'negativereason_gold',
@@ -63,7 +61,7 @@ tweet.columns ## to get name of features in the data
 The data has 14640 samples with 15 features. However, I only use 'text' and 'airline_sentiment' feature as the aim of this project is to predict sentiment class given tweets.
 
 Next lets apply some preprocessing in tweets
-1. In practice we usually use shortened form of words in tweets than full expanded form. So, using common English short forms I will expand it to full notation to minimize OOV(out-of-vocabulary) words
+1. In practice we usually use shortened form of words in tweets than full expanded form. So, using common English short forms, I will expand it to full notation to minimize OOV(out-of-vocabulary) words
 2. Removal of unnecessary punctuation marks
 3. changing to lowercase
 4. Dealing with emoji. Commonly occur in user comments
@@ -71,8 +69,8 @@ Next lets apply some preprocessing in tweets
 
 ```python
 # dictionary of commonly used contractions
-contraction_mapping = {
-    "'cause": 'because',',cause': 'because',';cause': 'because',"ain't": 'am not','ain,t': 'am not'} #
+# can be used from https://www.kaggle.com/adityaecdrid/public-version-text-cleaning-vocab-65
+contraction_mapping = {..}
 ```
 
 
@@ -185,10 +183,28 @@ Next lets build model that predict sentiment class for each tweets. I will compa
 1. Creating vocabulary
 2. Prepare data for CNN
 3. Embed (represent each words in a sequence to its word vector (real-valued low-dimensional dense vector))
-4. Defining architectural model
+4. Building model
 5. Training (fitting data to the model)
 6. Evaluation with test data
 
+
+#### Data Preparation: tokenization, vocabulary and sequence of word indices
+Our data (means tweet) is structured as sequence of words. To fit neural model, we should convert each words into meaningful representation of vectors from embedding defined above. First we have to tokenize tweets into sequence of words, then each words are replaced into their integer index from vocabulary. This task is managed by keras Tokenizer API and texts_to_sequences function. The run_tokenizer() method above is responsible for this task and results tuple of each tokenized tweets and vocabulary. Since, the model we are working with (RNN and CNN) expects fixed size input, each tweets greater than 25 in word length are truncated and padded if less than 25. This task is performed with keras pad_sequences() function. For OOV words, random vector is filled with Numpy random function and words exist in vocabulary get GloVe embedding. Then sequence of vector is passed into neural model to predict sentiment after encoding.
+
+```python
+   
+def run_tokenizer(train,test,MAX_LEN,MAX_VOCAB_SIZE=10000):
+    logger.info('Fitting tokenizer')
+    tokenizer = Tokenizer(num_words=MAX_VOCAB_SIZE, lower=True) 
+    tokenizer.fit_on_texts(train)
+    word_index = tokenizer.word_index
+    X_train = tokenizer.texts_to_sequences(train)
+    X_test = tokenizer.texts_to_sequences(test)
+    X_train = pad_sequences(X_train, maxlen=MAX_LEN)
+    X_test=pad_sequences(X_test, maxlen=MAX_LEN)
+    
+    return X_train, X_test, word_index
+```
 #### Word Embedding: Tweet to Vector
 Using a predictive neural language model (Bengio, 2008), real-valued low-dimensional dense vectors called word embedding get hot research area after release of neural language models  such as Word2vec (Mikolov et al., 2013a) and FastText ( Bojanowski et al., 2017). In fact GloVe from Stanford University which is trained on aggregated global word-word co-occurrence statistics from a corpus contributed more also (Jeffrey Pennington, Richard Socher, and Christopher D. Manning. 2014. GloVe: Global Vectors for Word Representation). We can access pre-trained word embeddings from several sources (either domain specific or general), but I will be using GloVe representation from https://www.kaggle.com/jdpaletto/glove-global-vectors-for-word-representation trained over 2B tweets with 27B tokens and has 1.2M vocab. Tweeter has also Word2Vec and FastText pre-trained embeddings which is about 14GB in size and can be downloaded from https://github.com/FredericGodin/TwitterEmbeddings.
 
@@ -205,9 +221,6 @@ from keras.preprocessing.sequence import pad_sequences
     Using TensorFlow backend.
     
 
-#### Data Preparation to fit neural model
-Our data (means tweet) is structured as sequence of words. To fit neural model, we should convert each words into meaningful representation of vectors from embedding defined above. First we have to tokenize tweets into sequence of words, then each words are replaced into their integer index from vocabulary. This task is managed by keras Tokenizer API and texts_to_sequences function. The run_tokenizer() method above is responsible for this task and results tuple of each tokenized tweets and vocabulary. Since, the model we are working with (RNN and CNN) expects fixed size input, each tweets greater than 25 in word length are truncated and padded if less than 25. This task is performed with keras pad_sequences() function. For OOV words, random vector is filled with Numpy random function and words exist in vocabulary get GloVe embedding. Then sequence of vector is passed into neural model to predict sentiment after encoding.
-
 
 ```python
 def get_embeddings(word_index):
@@ -223,19 +236,7 @@ def get_embeddings(word_index):
         emb_matrix[idx] = vec
     tweet_glove.close()
     return emb_matrix
-    
-def run_tokenizer(train,test,MAX_LEN,MAX_VOCAB_SIZE=10000):
-    logger.info('Fitting tokenizer')
-    tokenizer = Tokenizer(num_words=MAX_VOCAB_SIZE, lower=True) 
-    tokenizer.fit_on_texts(train)
-    word_index = tokenizer.word_index
-    X_train = tokenizer.texts_to_sequences(train)
-    X_test = tokenizer.texts_to_sequences(test)
-    X_train = pad_sequences(X_train, maxlen=MAX_LEN)
-    X_test=pad_sequences(X_test, maxlen=MAX_LEN)
-    
-    return X_train, X_test, word_index
-```
+ ```
 
 
 ```python
@@ -265,7 +266,8 @@ print(X_train.shape,X_test.shape, y_train.shape,y_test.shape)
     (13176, 35) (1464, 35) (13176,) (1464,)
     
 
-#### Creating Model
+#### Building CNN, RNN and BERT Model
+
 ##### Convolutional Neural Network (CNN)
 Usage of neural architecture is bocoming very easy after introduction of frameworks such as Tensorflow, Pytorch, and Keras. To work with this example, I will use Keras platform that use Tensorflow in the background.
 
@@ -331,6 +333,7 @@ tf.keras.utils.plot_model(model, to_file='model_plot.png', show_shapes=True, sho
 ![png](tweet_cnn_model.png)
 
 
+#### Fit Data to model: Training
 
 Next step if fitting dataset to created mo
 
@@ -362,7 +365,7 @@ trained_model=model.fit(X_train, pd.get_dummies(y_train), epochs=10, batch_size=
     11858/11858 - 11s - loss: 0.1317 - accuracy: 0.9523 - val_loss: 0.8340 - val_accuracy: 0.7678
     
 
-
+#### Plotting the training loss
 ```python
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -394,6 +397,7 @@ plot_training_loss(trained_model.history['loss'])
 ![png](cnn_loss_plot.png)
 
 
+### Evaluating with Test data
 
 ```python
 predicted= model.predict(X_test)
@@ -905,3 +909,6 @@ print(classification_report(flat_true_labels, flat_predictions))
     
 
 With only 4 epoches and default parameter, fine-tunning BertForSequenceClassification model acheived +2 incerement over GRU performance. This shows the model can learn perfectly is further parameter optimization and exploring each layers.
+
+### Conclusion
+From the above steps, we can see that the Transformer models are very powerfull, easy to train and cheep interms of time of training than sequential and convolutional neural network models. However, the power of such models is not tested for all NLP tasks. With next blogs, I will try to work on using different transformer models and comparing their performance in text classification task. In addition, other transfer learning models such as universal encoders and ELMO can also be tested.
