@@ -9,6 +9,7 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 ### Natural Language Processing
 - [Amharic Word Embedding](Am_FastText.md)
 - [Text pre-processing for Amharic](am-preprocess.md)
+- [PosTagger for Wolaita Language](wolaita_postagger.md)
 - [Deep Learning for Text classification](airline_sentiment_classification.md)
 #### Transfer Learning for NLP
 - [Universal Encoders: ELMO and Google Universal Encoders](universal_encoders.md) 
