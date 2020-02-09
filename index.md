@@ -26,11 +26,11 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Working with English Premier League Seasonal Data: Predicting winning team](english_premier_league_data_analysis.md)
 
 ### A/B Testing Projects
-- [Udacity Hypothesis Testing project]()
-- [ML for hypothesis testing]()
+- [Udacity Hypothesis Testing project](ab_testing.md)
+- [ML for hypothesis testing](ml_hypothesis.md)
 
 ### Computer Vision Projects
+- [Amharic Character recoginition](amharic.md)
+- [Malaria Microscopic cell pathogenic object detection](disease_phatogenic_object_detector.md)
 - [ICLR Workshop Challenge #1: CGIAR Computer Vision for Crop Disease]()
-- [Amharic Character recoginition]()
-- [Malaria Microscopic cell pathogenic object detection]()
 
