@@ -17,8 +17,6 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 
 ### Classification: Predictive Analysis
 - [Mobile Money and Financial Inclusion in Tanzania Challenge]()
-- [Insurance Prediction]()
-- [Financial Inclusion in Africa]()
 
 ### Regression: Predictive Analysis
 - [Flight Delay Prediction Challenge]()
