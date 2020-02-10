@@ -16,11 +16,11 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Fine-tunning with transformers: Text Classification(XLNet, BERT, ROBERTa, XLM)](transformer.md)
 
 ### Classification: Predictive Analysis
-- [Mobile Money and Financial Inclusion in Tanzania Challenge]()
+- [Mobile Money and Financial Inclusion in Tanzania Challenge]
 
 ### Regression: Predictive Analysis
-- [Flight Delay Prediction Challenge]()
-- [Fraud Detection in Electricity and Gas Consumption Challenge]()
+- [Flight Delay Prediction Challenge]
+- [Fraud Detection in Electricity and Gas Consumption Challenge]
 - [Working with English Premier League Seasonal Data: Predicting winning team](english_premier_league_data_analysis.md)
 
 ### A/B Testing Projects
