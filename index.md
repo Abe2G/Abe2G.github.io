@@ -9,7 +9,7 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 ### Natural Language Processing
 - [Amharic Word Embedding](Am_FastText.md)
 - [Text pre-processing for Amharic](am-preprocess.md)
-- [Augmenting the GRU part-of-speech tagger with sub-words: Amharic Neural Postagger](am_post_tagger.md)
+- [Augmenting the GRU part-of-speech tagger with sub-words: Amharic Neural Postagger](am_pos_tagger.md)
 - [PosTagger for Wolaita Language](wolaita_postagger.md)
 - [Deep Learning for Text classification](airline_sentiment_classification.md)
 #### Transfer Learning for NLP
