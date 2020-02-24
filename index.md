@@ -32,5 +32,5 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 ### Computer Vision Projects
 - [Amharic Character recoginition](amharic.md)
 - [Malaria Microscopic cell pathogenic object detection](disease_phatogenic_object_detector.md)
-- [ICLR Workshop Challenge #1: CGIAR Computer Vision for Crop Disease]()
+- [ICLR Workshop Challenge #1: CGIAR Computer Vision for Crop Disease](wheat_disease_detection.md)
 
