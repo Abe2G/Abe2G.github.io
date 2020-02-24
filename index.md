@@ -12,7 +12,7 @@ The repository contains data analysis, predictive analytics, computer vision, NL
 - [Augmenting the GRU part-of-speech tagger with sub-words: Amharic Neural Postagger](am_pos_tagger.md)
 - [PosTagger for Wolaita Language](wolaita_postagger.md)
 - [Amharic-English Neural Machine Translation](amharic-english neural machine translation.md)
-- [Deep Learning for Text classification](airline_sentiment_classification.md)
+- [Deep Learning for Text classification - CNN, RNN, BERT](airline_sentiment_classification.md)
 #### Transfer Learning for NLP
 - [Universal Encoders: ELMO and Google Universal Encoders]
 - [Fine-tunning with transformers: Text Classification(XLNet, BERT, ROBERTa, XLM)](transformer.md)
