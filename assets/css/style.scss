@@ -1,9 +1,22 @@
 body {
   background-color: #fff;
-  padding: 50px;
+  padding: 0px;
   font: 14px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #727272;
   font-weight: 400;
+  
+}
+body, html {
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.wrapper {
+  box-sizing: border-box; /* Ensure padding is included in the width calculation */
+}
+
+.wrapper > div {
+  box-sizing: border-box; /* Ensure padding is included in the width calculation */
 }
 
 h1, h2, h3, h4, h5, h6 {
