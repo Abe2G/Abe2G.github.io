@@ -4,12 +4,12 @@
 ## Introduction
 
 In today's data-driven world, organizations need efficient and scalable data processing pipelines. Adflow is a powerful platform designed to meet this demand by providing a robust and flexible infrastructure for handling large-scale data processing tasks. In this article, we will explore the technical components of Adflow, focusing on its tech stack, the data interface, and the steps required to set up a similar ELT pipeline.
-
+![Adflow pipeline](adflow.png)
 ## Adflow Tech Stack Overview
 
 The Adflow platform leverages a combination of industry-leading technologies to ensure high performance, scalability, and ease of use. Below is a breakdown of the key technologies integrated into the Adflow tech stack:
 
-![Adflow Tech Stack](https://url-to-adflow-tech-stack-image)
+![Adflow Tech Stack](adflow_techs_stack.png)
 
 - **Apache Spark**: A powerful distributed data processing engine that handles large-scale data processing tasks across clusters.
 - **AWS Athena**: An interactive query service that allows you to analyze data in Amazon S3 using standard SQL.
@@ -147,7 +147,7 @@ Parquet is a columnar storage format used by Adflow to optimize both the storage
 
 Adflow's data interface is designed to support dynamic, parameterized requests. It provides users with the capability to create custom, shareable, and reusable report plans, ensuring flexibility and efficiency in data handling. Below is a visual representation of the overall data interface:
 
-![Adflow Data Interface](https://url-to-data-interface-image)
+![Adflow Data Interface](interface.png)
 
 - **Data Catalog**: The central hub for organizing and managing metadata for datasets. It ensures easy discoverability and accessibility of data.
 - **SSO Interface**: A Single Sign-On interface that integrates various data request types such as ML/AI, Analytics Insights, and Reporting into the platform.
