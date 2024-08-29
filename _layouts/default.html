@@ -11,32 +11,39 @@
     <![endif]-->
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1><a href="{{ '/' | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-        {% if site.logo %}
-          <img src="{{ site.logo | relative_url }}" alt="Abebawu Eshetu" />
-        {% endif %}
-        <p><strong>Author:</strong> Abebawu Eshetu</p>
-        <p align='justify'><strong>Research Interest:</strong> Natural Language Processing, Machine Learning, and Computer Vision for Social Goods.</p>
-        {% if site.show_downloads %}
-        <ul class="downloads">
-          <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
-          <li><a href="{{ site.github.zip_url }}">Download <strong>Repository</strong></a></li>
-        </ul>
-        {% endif %}
-        <nav>
-          {% if site.footer-links.email %}<a href="mailto:{{ site.footer-links.email }}"><i class="svg-icon email"></i></a>{% endif %}
-          {% if site.footer-links.facebook %}<a href="https://www.facebook.com/{{ site.footer-links.facebook }}"><i class="svg-icon facebook"></i></a>{% endif %}
-          {% if site.footer-links.github %}<a href="https://github.com/{{ site.footer-links.github }}"><i class="svg-icon github"></i></a>{% endif %}
-          {% if site.footer-links.instagram %}<a href="https://instagram.com/{{ site.footer-links.instagram }}"><i class="svg-icon instagram"></i></a>{% endif %}
-          {% if site.footer-links.linkedin %}<a href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}"><i class="svg-icon linkedin"></i></a>{% endif %}
-          {% if site.footer-links.twitter %}<a href="https://www.twitter.com/{{ site.footer-links.twitter }}"><i class="svg-icon twitter"></i></a>{% endif %}
-        </nav>
-      </header>
-      <section>
-        {{ content }}
-      </section>
+    <div class="wrapper" style="display: flex; width: 100%; margin: 0; padding: 0;">
+      <!-- Header Section -->
+      <div style="width: 20%; padding-right: 20px;">
+        <header>
+          <h1><a href="{{ '/' | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+          {% if site.logo %}
+            <img src="{{ site.logo | relative_url }}" alt="Abebawu Eshetu" />
+          {% endif %}
+          <p><strong>Author:</strong> Abebawu Eshetu</p>
+          <p align='justify'><strong>Research Interest:</strong> Natural Language Processing, Machine Learning, and Computer Vision for Social Goods.</p>
+          {% if site.show_downloads %}
+          <ul class="downloads">
+            <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
+            <li><a href="{{ site.github.zip_url }}">Download <strong>Repository</strong></a></li>
+          </ul>
+          {% endif %}
+          <nav>
+            {% if site.footer-links.email %}<a href="mailto:{{ site.footer-links.email }}"><i class="svg-icon email"></i></a>{% endif %}
+            {% if site.footer-links.facebook %}<a href="https://www.facebook.com/{{ site.footer-links.facebook }}"><i class="svg-icon facebook"></i></a>{% endif %}
+            {% if site.footer-links.github %}<a href="https://github.com/{{ site.footer-links.github }}"><i class="svg-icon github"></i></a>{% endif %}
+            {% if site.footer-links.instagram %}<a href="https://instagram.com/{{ site.footer-links.instagram }}"><i class="svg-icon instagram"></i></a>{% endif %}
+            {% if site.footer-links.linkedin %}<a href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}"><i class="svg-icon linkedin"></i></a>{% endif %}
+            {% if site.footer-links.twitter %}<a href="https://www.twitter.com/{{ site.footer-links.twitter }}"><i class="svg-icon twitter"></i></a>{% endif %}
+          </nav>
+        </header>
+      </div>
+
+      <!-- Main Content Section -->
+      <div style="width: 80%;">
+        <section>
+          {{ content }}
+        </section>
+      </div>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
     {% if site.google_analytics %}

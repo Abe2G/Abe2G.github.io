@@ -1,6 +1,7 @@
 The repository contains data analysis, predictive analytics, computer vision, NLP, and A/B testing projects developed through self-directed learning.
 ### Data Engineering
-- [Custom ELT for AdTech Data](adflow_pipeline.md)
+- [Building an Advanced Data Pipeline with Adflow](adflow_pipeline.md)
+
 ### Data Analytics
 - [Exploring Major Cities Health Indicators](health_stats_analysis.md) 
 - [Airline Tweet Analysis to discover negative opinions of passengers towards service improvement](airline_tweet_data_analysis.md) 
