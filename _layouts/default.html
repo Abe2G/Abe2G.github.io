@@ -12,7 +12,7 @@
   </head>
   <body style="margin: 0; padding: 0;">
     <div class="wrapper" style="display: flex; width: 100%; height: 100vh; margin: 0; padding: 0 5%;">
-      <!-- Header Section -->
+      <!-- Left Section (Header) -->
       <div style="width: 20%; padding-right: 20px;">
         <header>
           <h1><a href="{{ '/' | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
@@ -35,12 +35,12 @@
         </header>
       </div>
 
-     <!-- Main Content Section -->
-<div style="flex-grow: 1; display: flex; flex-direction: column; padding-right: 20px;">
-  <section style="flex-grow: 1;">
-      {{ content }}
-  </section>
-</div>
+      <!-- Main Content Section -->
+      <div style="flex-grow: 1; display: flex; flex-direction: column;">
+        <section style="flex-grow: 1;">
+          {{ content }}
+        </section>
+      </div>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
     {% if site.google_analytics %}
