@@ -10,10 +10,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
   </head>
-  <body style="margin: 0; padding: 0;">
+  <body style="margin: 0; padding: 0; overflow-x: hidden;">
     <div style="display: flex; width: 100%; height: 100vh; margin: 0; padding: 0 5%;">
       <!-- Header Section -->
-      <div style="width: 20%; padding-right: 20px;">
+      <div style="width: 20%; padding-right: 20px; position: fixed; height: 100vh;">
         <header>
           <h1><a href="{{ '/' | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
           {% if site.logo %}
@@ -36,10 +36,8 @@
       </div>
     
       <!-- Main Content Section -->
-      <div style="flex-grow: 1; flex-basis: 80%;">
-        <!-- <section style="flex-grow: 1;"> -->
-          {{ content }}
-        <!-- </section> -->
+      <div style="margin-left: 20%; padding-right: 20px; flex-grow: 1;">
+        {{ content }}
       </div>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
