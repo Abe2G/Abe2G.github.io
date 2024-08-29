@@ -22,10 +22,10 @@
           <p><strong>Author:</strong> Abebawu Yigezu</p>
           <p align='justify'><strong>Experience:</strong> Extensive expertise in Machine Learning, Natural Language Processing (NLP), and Data Science, with a strong focus on AdTech, data analytics, and data engineering. I have led and contributed to numerous projects involving real-time data processing, campaign optimization, and advanced AI-driven solutions in the advertising technology space, delivering impactful results and insights through cutting-edge techniques.</p>
           {% if site.show_downloads %}
-          <ul class="downloads">
-            <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
-            <li><a href="{{ site.github.zip_url }}">Download <strong>Repository</strong></a></li>
-          </ul>
+            <ul class="downloads">
+              <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
+              <li><a href="{{ site.github.zip_url }}">Download <strong>Repository</strong></a></li>
+            </ul>
           {% endif %}
           <nav>
             {% if site.footer-links.email %}<a href="mailto:{{ site.footer-links.email }}"><i class="svg-icon email"></i></a>{% endif %}
@@ -34,13 +34,13 @@
           </nav>
         </header>
       </div>
-
-     <!-- Main Content Section -->
-<div style="flex-grow: 1; display: flex; flex-direction: column; padding-right: 20px;">
-  <section style="flex-grow: 1;">
-      {{ content }}
-  </section>
-</div>
+    
+      <!-- Main Content Section -->
+      <div style="flex-grow: 1; flex-basis: 80%;">
+        <section style="flex-grow: 1;">
+          {{ content }}
+        </section>
+      </div>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
     {% if site.google_analytics %}
