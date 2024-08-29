@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% seo %}
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -17,9 +16,9 @@
         <header>
           <h1><a href="{{ '/' | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
           {% if site.logo %}
-            <img src="{{ site.logo | relative_url }}" alt="Abebawu Eshetu" />
+            <img src="{{ site.logo | relative_url }}" alt="Abebawu Yigezu" />
           {% endif %}
-          <p><strong>Author:</strong> Abebawu Eshetu</p>
+          <p><strong>Author:</strong> Abebawu Yigezu</p>
           <p align='justify'><strong>Experience:</strong> Extensive expertise in Machine Learning, Natural Language Processing (NLP), and Data Science, with a strong focus on AdTech, data analytics, and data engineering. I have led and contributed to numerous projects involving real-time data processing, campaign optimization, and advanced AI-driven solutions in the advertising technology space, delivering impactful results and insights through cutting-edge techniques.</p>
           {% if site.show_downloads %}
           <ul class="downloads">
@@ -35,12 +34,11 @@
         </header>
       </div>
 
-      <!-- Main Content Section -->
-      <div style="width: 80%; display: flex; flex-direction: column;">
-        <section style="flex-grow: 2;">
-          {{ content }}
+      <div style="flex-grow: 1; display: flex; flex-direction: column; padding-right: 20px;">
+        <section style="flex-grow: 1;">
+            {{ content }}
         </section>
-      </div>
+    </div>
     </div>
     <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
     {% if site.google_analytics %}
