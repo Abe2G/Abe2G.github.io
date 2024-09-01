@@ -1,58 +1,96 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: 'en-US' }}">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% seo %}
-    <!-- <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> -->
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <![endif]-->
-  </head>
-  <body style="margin: 0; padding: 0; overflow-x: hidden;">
-    <div style="display: flex; flex-direction: row; width: 100%; height: 100vh; margin: 0; box-sizing: border-box;">
-      <!-- Header Section -->
-      <div style="width: 20%; padding-right: 20px; box-sizing: border-box;">
-        <header style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <h1><a href="{{ '/' | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
-            {% if site.logo %}
-              <img src="{{ site.logo | relative_url }}" alt="Abebawu Yigezu" />
-            {% endif %}
-            <p><strong>Author:</strong> Abebawu Yigezu</p>
-            <p align="justify"><strong>Experience:</strong> Extensive expertise in Machine Learning, Natural Language Processing (NLP), and Data Science...</p>
-          </div>
-          {% if site.show_downloads %}
-            <ul class="downloads">
-              <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
-              <li><a href="{{ site.github.zip_url }}">Download <strong>Repository</strong></a></li>
-            </ul>
-          {% endif %}
-          <nav>
-            {% if site.footer-links.email %}<a href="mailto:{{ site.footer-links.email }}"><i class="svg-icon email"></i></a>{% endif %}
-            {% if site.footer-links.github %}<a href="https://github.com/{{ site.footer-links.github }}"><i class="svg-icon github"></i></a>{% endif %}
-            {% if site.footer-links.linkedin %}<a href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}"><i class="svg-icon linkedin"></i></a>{% endif %}
-          </nav>
-        </header>
-      </div>
-      <!-- Main Content Section -->
-      <div style="width: 80%; padding: 20px; box-sizing: border-box;">
-        <section>
-          {{ content }}
-        </section>
-      </div>
-    </div>
-    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-    {% if site.google_analytics %}
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r.q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', '{{ site.google_analytics }}', 'auto');
-      ga('send', 'pageview');
-    </script>
-    {% endif %}
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% seo %}
+  <!-- <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> -->
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <![endif]-->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      display: flex;
+      height: 100vh;
+    }
+    .header {
+      width: 20%;
+      height: 100vh;
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      left: 0;
+      overflow: auto;
+      padding: 20px;
+      background-color: #f8f9fa;
+    }
+    .header img {
+      max-width: 100%;
+      height: auto;
+    }
+    .content {
+      margin-left: 20%;
+      width: 80%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    nav a {
+      margin-right: 10px;
+    }
+    /* Optional styling */
+    header h1 a {
+      text-decoration: none;
+      color: #333;
+    }
+    .downloads a {
+      display: block;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <div class="header">
+    <header>
+      <h1><a href="{{ '/' | absolute_url }}">{{ site.title | default: site.github.repository_name }}</a></h1>
+      {% if site.logo %}
+        <img src="{{ site.logo | relative_url }}" alt="Abebawu Yigezu" />
+      {% endif %}
+      <p><strong>Author:</strong> Abebawu Yigezu</p>
+      <p align="justify"><strong>Experience:</strong> Extensive expertise in Machine Learning, Natural Language Processing (NLP), and Data Science, with a strong focus on AdTech, data analytics, and data engineering. I have led and contributed to numerous projects involving real-time data processing, campaign optimization, and advanced AI-driven solutions in the advertising technology space, delivering impactful results and insights through cutting-edge techniques.</p>
+      {% if site.show_downloads %}
+        <ul class="downloads">
+          <li><a href="{{ site.github.repository_url }}">View On <strong>GitHub</strong></a></li>
+          <li><a href="{{ site.github.zip_url }}">Download <strong>Repository</strong></a></li>
+        </ul>
+      {% endif %}
+      <nav>
+        {% if site.footer-links.email %}<a href="mailto:{{ site.footer-links.email }}"><i class="svg-icon email"></i></a>{% endif %}
+        {% if site.footer-links.github %}<a href="https://github.com/{{ site.footer-links.github }}"><i class="svg-icon github"></i></a>{% endif %}
+        {% if site.footer-links.linkedin %}<a href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}"><i class="svg-icon linkedin"></i></a>{% endif %}
+      </nav>
+    </header>
+  </div>
+  <!-- Main Content Section -->
+  <div class="content">
+    <section>
+      {{ content }}
+    </section>
+  </div>
+  <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
+  {% if site.google_analytics %}
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', '{{ site.google_analytics }}', 'auto');
+    ga('send', 'pageview');
+  </script>
+  {% endif %}
+</body>
 </html>
