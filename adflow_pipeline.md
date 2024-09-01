@@ -1,9 +1,9 @@
 
-# Building an Advanced Data Pipeline with Adflow
+# Building an Advanced Data Pipeline
 
 ## Introduction
 
-In today's data-driven world, organizations need efficient and scalable data processing pipelines. Adflow is a powerful platform designed to meet this demand by providing a robust and flexible infrastructure for handling large-scale data processing tasks. In this article, we will explore the technical components of Adflow, focusing on its tech stack, the data interface, and the steps required to set up a similar ELT pipeline.
+In today's data-driven world, organizations need efficient and scalable data processing pipelines. Adflow is a powerful data platform designed team in Adludio to meet this demand by providing a robust and flexible infrastructure for handling large-scale data processing tasks. In this article, we will explore the technical components of Adflow, focusing on its tech stack, the data interface, and the steps required to set up a similar ELT pipeline.
 ![Adflow pipeline](adflow.png)
 ## Adflow Tech Stack Overview
 
