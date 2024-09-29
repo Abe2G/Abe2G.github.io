@@ -1,12 +1,14 @@
 
 
 This repository is a showcase of my extensive experience in advanced data analytics, data engineering, machine learning, and the latest trends in Generative AI. It includes a diverse range of projects that I have worked on, including in-depth ETL/ELT, data analysis, computer vision, natural language processing (NLP), and A/B testing. Each project reflects my proficiency in leveraging data to drive actionable insights, optimizing machine learning models, and implementing cutting-edge AI techniques.
+### AdTech Best Practices
+-[Data, Algorithms, and Engineering Challenges in Price Floor Optimization in AdTech](price_floor.md.md)
 
-### Large Language Models
+<!-- ### Large Language Models
 -[Best practices in Industrial prompt engineering](prompt_eng.md)
 -[Fewshot Training with Langchain](langchain.md)
 -[Finetunning LlaMA](finetunning.md)
--[Retrival Augmented Generation(RAG) usecases](rag.md)
+-[Retrival Augmented Generation(RAG) usecases](rag.md) -->
 
 ### Data Engineering
 - [Building an Advanced Data Pipeline with Adflow](adflow_pipeline.md)
