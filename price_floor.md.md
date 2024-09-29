@@ -9,8 +9,9 @@ In the world of Real-Time Bidding (RTB), three key players operate: Supply-Side 
 
 When a user visits a webpage, the publisher’s ad server, often through an SSP, sends a bid request to an Ad Exchange. Connected DSPs respond with bids, and the highest bid is selected, setting the clearing price for the publisher.
 
-*![](https://lh7-rt.googleusercontent.com/slidesz/AGV_vUd2X9QpdLHsHRveg9oDZv7R4FESrO-lCX-JMRUuh7D8Tnaro0_Cu_2bgFhbsvZXe7xn9CghNfi_7VapxrMsXUeiVhGok9M_80BSFYSA43pAPq3R6RrgGTWHOuyaP_4RGGfZZ3Xs5kwgNFAu0K-TNbEkMXz_PhBi_tCKwtHmBclf4gtjgE1_9A=s2048?key=N4bxsIqWctWnr6rx7vcDYw)**
-Header bidding has emerged as a powerful tool for publishers, allowing them to connect with multiple SSPs or Ad Exchanges simultaneously for a single impression. Each partner conducts its own auction, and the publisher chooses the bid that offers the highest revenue, fostering increased competition and higher prices.
+*![](https://lh7-rt.googleusercontent.com/slidesz/AGV_vUd2X9QpdLHsHRveg9oDZv7R4FESrO-lCX-JMRUuh7D8Tnaro0_Cu_2bgFhbsvZXe7xn9CghNfi_7VapxrMsXUeiVhGok9M_80BSFYSA43pAPq3R6RrgGTWHOuyaP_4RGGfZZ3Xs5kwgNFAu0K-TNbEkMXz_PhBi_tCKwtHmBclf4gtjgE1_9A=s2048?key=N4bxsIqWctWnr6rx7vcDYw)*
+
+**Header bidding** has emerged as a powerful tool for publishers, allowing them to connect with multiple SSPs or Ad Exchanges simultaneously for a single impression. Each partner conducts its own auction, and the publisher chooses the bid that offers the highest revenue, fostering increased competition and higher prices.
 
 Central to this process is the  **floor price**, a minimum amount set by the publisher for ad impressions, , which can be static (fixed) or dynamic (variable based on various factors). If bids fall below this threshold, the impression remains unsold. By adjusting the floor price, publishers maintain control over their inventory's value, preventing undervaluation and maximizing revenue potential in the dynamic landscape of programmatic advertising.
 
