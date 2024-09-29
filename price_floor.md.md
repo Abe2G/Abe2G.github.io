@@ -91,6 +91,7 @@ This section delves into essential metrics and signals the industry should monit
 To effectively optimize price floors, it's essential to monitor a variety of key events and metrics that influence bidding behavior and revenue potential. By tracking publisher-related events, such as historical CPM data, page context, and user engagement metrics, along with bidder and DSP-specific behaviors like bid response times and win/loss data, publishers can gain valuable insights into the market dynamics at play. Additionally, understanding DSP and auction-specific trends such as demand seasonality and geo-specific bidding patterns enables more informed decision-making. Coupling these insights with key performance indicators (KPIs) like fill rate, revenue per thousand impressions (RPM), and latency metrics creates a comprehensive framework for maximizing revenue through data-driven price floor optimization. Let's explore each categories:
 
  ####  A) Publisher-Related Events:
+ 
 -  **Historical CPM Data**: Track past CPMs for impressions across different segments (geo, device, user behavior). This helps establish baseline pricing and informs dynamic adjustments.
 -  **Page Context and Category**: Different page content categories (e.g., sports, fashion) may attract varying levels of bidding intensity.
 - **Ad Slot Viewability Metrics**: High viewability ad slots typically demand higher bids. SSPs track viewability to adjust floors accordingly.
