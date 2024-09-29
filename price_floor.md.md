@@ -76,7 +76,7 @@ Reinforcement learning (RL) models are gaining traction in price floor optimizat
 -   **Q-Learning/Deep Q-Networks (DQN)**:
     -   These models allow the SSP to predict the best action (price floor adjustment) based on the current state of the auction. Over time, the system learns the best strategies for different auction scenarios, including varying DSP demand and user segments.
 
-d) **Price Floor as an Optimization Problem**
+#### d) **Price Floor as an Optimization Problem**
 
 Price floor optimization can be framed as an optimization problem by defining a cost function that seeks to maximize revenue based on the relationship between the price floor, expected winning bids, and fill rates. The objective is to find the optimal minimum price that a publisher should set for ad impressions while adhering to constraints such as the publisher's base price and prevailing market conditions. This involves analyzing historical auction data to inform the optimization process, selecting an appropriate algorithm (e.g., basinhopping) to explore the solution space, and iteratively updating the model with new data to adapt to changing market dynamics. Ultimately, this structured approach enables publishers to effectively balance revenue generation and inventory fill rates in the competitive landscape of Real-Time Bidding (RTB).
 
@@ -89,6 +89,7 @@ This section delves into essential metrics and signals the industry should monit
 **Data Requirement for effective price floor optimization**
 
 To effectively optimize price floors, it's essential to monitor a variety of key events and metrics that influence bidding behavior and revenue potential. By tracking publisher-related events, such as historical CPM data, page context, and user engagement metrics, along with bidder and DSP-specific behaviors like bid response times and win/loss data, publishers can gain valuable insights into the market dynamics at play. Additionally, understanding DSP and auction-specific trends such as demand seasonality and geo-specific bidding patterns enables more informed decision-making. Coupling these insights with key performance indicators (KPIs) like fill rate, revenue per thousand impressions (RPM), and latency metrics creates a comprehensive framework for maximizing revenue through data-driven price floor optimization. Let's explore each categories:
+
  ####  A) Publisher-Related Events:
 -  **Historical CPM Data**: Track past CPMs for impressions across different segments (geo, device, user behavior). This helps establish baseline pricing and informs dynamic adjustments.
 -  **Page Context and Category**: Different page content categories (e.g., sports, fashion) may attract varying levels of bidding intensity.
